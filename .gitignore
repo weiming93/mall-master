@@ -1,0 +1,3 @@
+# Project exclude paths
+/mall-common/mall-common-jpa/target/
+/mall-common/mall-common-util/target/
