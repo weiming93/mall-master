@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/mall-common/mall-common.iml" filepath="$PROJECT_DIR$/mall-common/mall-common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mall-common/mall-common-jpa/mall-common-jpa.iml" filepath="$PROJECT_DIR$/mall-common/mall-common-jpa/mall-common-jpa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-common/mall-common-core/mall-common-core.iml" filepath="$PROJECT_DIR$/mall-common/mall-common-core/mall-common-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-common/mall-common-util/mall-common-util.iml" filepath="$PROJECT_DIR$/mall-common/mall-common-util/mall-common-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-master.iml" filepath="$PROJECT_DIR$/mall-master.iml" />
     </modules>

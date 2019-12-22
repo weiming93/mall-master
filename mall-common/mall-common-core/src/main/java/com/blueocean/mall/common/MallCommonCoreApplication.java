@@ -4,9 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MallCommonJpaApplication {
+public class MallCommonCoreApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MallCommonJpaApplication.class);
+        SpringApplication.run(MallCommonCoreApplication.class);
     }
 }

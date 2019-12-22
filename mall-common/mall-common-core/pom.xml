@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.blueocean.mall.common</groupId>
-    <artifactId>mall-common-jpa</artifactId>
+    <artifactId>mall-common-core</artifactId>
 
     <dependencies>
         <dependency>
