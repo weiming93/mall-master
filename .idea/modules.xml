@@ -6,6 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/mall-common/mall-common-core/mall-common-core.iml" filepath="$PROJECT_DIR$/mall-common/mall-common-core/mall-common-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-common/mall-common-util/mall-common-util.iml" filepath="$PROJECT_DIR$/mall-common/mall-common-util/mall-common-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-master.iml" filepath="$PROJECT_DIR$/mall-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-provider/mall-provider.iml" filepath="$PROJECT_DIR$/mall-provider/mall-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-provider/mall-provider-user/mall-provider-user.iml" filepath="$PROJECT_DIR$/mall-provider/mall-provider-user/mall-provider-user.iml" />
     </modules>
   </component>
 </project>
