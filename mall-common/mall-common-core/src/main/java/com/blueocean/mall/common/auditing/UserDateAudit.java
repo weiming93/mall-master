@@ -5,16 +5,16 @@ import lombok.Data;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 
-import javax.persistence.MappedSuperclass;
+import javax.persistence.Embeddable;
 
 
-@MappedSuperclass
+@Embeddable
 @JsonIgnoreProperties(
         value = {"createdBy", "updatedBy"},
         allowGetters = true
 )
 @Data
-public abstract class UserDateAudit extends DateAudit {
+public class UserDateAudit {
 
     @CreatedBy
     private Long createdBy;

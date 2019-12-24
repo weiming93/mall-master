@@ -14,6 +14,7 @@ spring:
     console:
       enabled: true #启动h2 web console
       path: /h2-console # 通过YOUR_URL/h2-console访问h2 web console
+
   jackson:
     time-zone: UTC
     serialization:
