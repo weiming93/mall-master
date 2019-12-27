@@ -1,13 +1,11 @@
 package com.blueocean.mall.provider.model;
 
-import com.blueocean.mall.common.auditing.UserDateAudit;
 import com.blueocean.mall.common.model.IdentityModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
@@ -19,8 +17,6 @@ import java.util.Set;
 @EqualsAndHashCode(of = "id")
 @Entity
 public class Dept extends IdentityModel {
-    @Embedded
-    private UserDateAudit userDateAudit;
 
     @NotBlank
     private String name;

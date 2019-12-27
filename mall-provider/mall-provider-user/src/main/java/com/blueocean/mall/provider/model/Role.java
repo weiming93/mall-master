@@ -1,6 +1,5 @@
 package com.blueocean.mall.provider.model;
 
-import com.blueocean.mall.common.auditing.UserDateAudit;
 import com.blueocean.mall.common.model.IdentityModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
@@ -16,9 +15,6 @@ import java.util.Set;
 @EqualsAndHashCode(of = "id")
 @Entity
 public class Role extends IdentityModel {
-
-    @Embedded
-    private UserDateAudit userDateAudit;
 
     @NaturalId
     private String name;

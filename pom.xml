@@ -23,6 +23,7 @@
     <properties>
         <java.version>1.8</java.version>
         <mall.version>1.0.0</mall.version>
+        <swagger.version>3.0.0-SNAPSHOT</swagger.version>
     </properties>
 
     <dependencies>

@@ -1,6 +1,5 @@
 package com.blueocean.mall.provider.model;
 
-import com.blueocean.mall.common.auditing.UserDateAudit;
 import com.blueocean.mall.common.model.IdentityModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
@@ -8,7 +7,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
@@ -60,7 +58,4 @@ public class Menu extends IdentityModel {
     @ManyToMany(mappedBy = "menus")
     @JsonIgnore
     private Set<Role> roles;
-
-    @Embedded
-    private UserDateAudit userDateAudit;
 }

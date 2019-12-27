@@ -12,6 +12,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>mall-provider-user</module>
+        <module>mall-provider-common</module>
     </modules>
     <groupId>com.blueocean.mall.provider</groupId>
     <artifactId>mall-provider</artifactId>
@@ -23,7 +24,10 @@
             <version>${mall.version}</version>
         </dependency>
 
+
     </dependencies>
+
+
 
 
 

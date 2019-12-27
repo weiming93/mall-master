@@ -1,7 +1,6 @@
 package com.blueocean.mall.common.model;
 
 import com.blueocean.mall.common.auditing.DateAudit;
-import com.blueocean.mall.common.auditing.UserDateAudit;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
