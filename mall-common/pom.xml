@@ -13,8 +13,11 @@
     <artifactId>mall-common</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>mall-common-core</module>
+        <module>mall-common-jpa</module>
         <module>mall-common-util</module>
+        <module>mall-common-openapi</module>
+        <module>mall-common-base</module>
+        <module>mall-common-security</module>
     </modules>
 
 

@@ -11,7 +11,7 @@
     </appender>
 
     <!--普通日志输出到控制台-->
-    <root level="info">
+    <root level="INFO">
         <appender-ref ref="console" />
     </root>
 
@@ -40,4 +40,6 @@
     <logger name="jdbc.audit" level="OFF" additivity="false">
         <appender-ref ref="console" />
     </logger>
+
+    <logger name="org.springframework.web" level="DEBUG"/>
 </configuration>

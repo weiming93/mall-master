@@ -1,0 +1,12 @@
+springdoc:
+  api-docs:
+    groups:
+      enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    display-request-duration: true
+  version: '@mall.version@'
+
+spring:
+  config:
+    name: application-openapi

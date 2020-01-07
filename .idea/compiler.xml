@@ -6,30 +6,44 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="mall-provider-common" />
+        <module name="mall-common-openapi" />
         <module name="mall-common-util" />
-        <module name="mall-common-core" />
+        <module name="mall-common-base" />
         <module name="mall-provider-user" />
+        <module name="mall-common-jpa" />
+        <module name="mall-common-security" />
+        <module name="mall-provider-generator" />
+        <module name="mall-provider-common" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="mall-common" target="1.8" />
-      <module name="mall-common-core" target="1.8" />
+      <module name="mall-common-base" target="1.8" />
+      <module name="mall-common-jpa" target="1.8" />
+      <module name="mall-common-openapi" target="1.8" />
+      <module name="mall-common-security" target="1.8" />
       <module name="mall-common-util" target="1.8" />
+      <module name="mall-common-webflux" target="1.8" />
       <module name="mall-master" target="1.8" />
       <module name="mall-provider" target="1.8" />
       <module name="mall-provider-common" target="1.8" />
+      <module name="mall-provider-generator" target="1.8" />
       <module name="mall-provider-user" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="mall-common" options="-parameters" />
-      <module name="mall-common-core" options="-parameters" />
+      <module name="mall-common-base" options="-parameters" />
+      <module name="mall-common-jpa" options="-parameters" />
+      <module name="mall-common-openapi" options="-parameters" />
+      <module name="mall-common-security" options="-parameters" />
       <module name="mall-common-util" options="-parameters" />
+      <module name="mall-common-webflux" options="-parameters" />
       <module name="mall-master" options="-parameters" />
       <module name="mall-provider" options="-parameters" />
       <module name="mall-provider-common" options="-parameters" />
+      <module name="mall-provider-generator" options="-parameters" />
       <module name="mall-provider-user" options="-parameters" />
     </option>
   </component>

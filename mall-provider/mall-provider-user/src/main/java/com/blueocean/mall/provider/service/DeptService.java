@@ -1,7 +1,6 @@
 package com.blueocean.mall.provider.service;
 
-import com.blueocean.mall.provider.model.Dept;
-import com.blueocean.mall.provider.repository.projections.DeptProjection;
+import com.blueocean.mall.provider.domain.Dept;
 
 public interface DeptService {
 
