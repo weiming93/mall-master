@@ -1,6 +1,6 @@
 package com.blueocean.mall.provider.controller;
 
-import com.blueocean.mall.common.domain.Create;
+import com.blueocean.mall.common.jpa.domain.Create;
 import com.blueocean.mall.provider.domain.Role;
 import com.blueocean.mall.provider.service.RoleService;
 import io.swagger.v3.oas.annotations.Operation;

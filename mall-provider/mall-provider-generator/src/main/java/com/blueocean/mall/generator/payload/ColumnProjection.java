@@ -1,6 +1,7 @@
 package com.blueocean.mall.generator.payload;
 
-import com.blueocean.mall.common.projection.BaseProjection;
+
+import com.blueocean.mall.common.jpa.projection.BaseProjection;
 
 public interface ColumnProjection extends BaseProjection {
     // 数据库字段名称

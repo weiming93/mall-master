@@ -1,7 +1,7 @@
 package com.blueocean.mall.provider.controller;
 
-import com.blueocean.mall.common.core.JWTUtil;
-import com.blueocean.mall.provider.domain.User;
+
+import com.blueocean.mall.common.security.core.JWTUtil;
 import com.blueocean.mall.provider.payload.dto.LoginDto;
 import com.blueocean.mall.provider.service.UserService;
 import com.blueocean.mall.provider.utils.ModelMapper;

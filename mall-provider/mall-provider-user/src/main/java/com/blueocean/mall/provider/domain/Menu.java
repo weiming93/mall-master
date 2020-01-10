@@ -1,6 +1,6 @@
 package com.blueocean.mall.provider.domain;
 
-import com.blueocean.mall.common.domain.IdentityModel;
+import com.blueocean.mall.common.jpa.domain.IdentityModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

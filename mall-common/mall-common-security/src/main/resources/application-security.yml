@@ -1,6 +1,0 @@
-## jwt Properties
-mall:
-  jwt-secret: JWTSuperSecretKey
-  jwt-expiration-in-ms: 604800000
-
-

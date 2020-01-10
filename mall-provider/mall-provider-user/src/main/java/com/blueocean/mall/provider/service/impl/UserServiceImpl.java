@@ -29,9 +29,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public Mono<User> findByUsernameOrEmail(String username, String email) {
         return Mono
-            .defer(() -> Mono.justOrEmpty(userRepository.findByUsernameOrEmail(username, email)))
-            .switchIfEmpty(Mono.error(new ResourceNotFoundException("账号", "username", username)))
-            .subscribeOn(jdbcScheduler);
+            .defer(() -> Mono.justOrEmpty(userRepository.findByUsernameOrEmail(username, email))
+                    .switchIfEmpty(Mono.error(new ResourceNotFoundException("账号", "username", username)))
+            ).subscribeOn(jdbcScheduler);
     }
 
     @Override

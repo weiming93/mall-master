@@ -1,6 +1,6 @@
 package com.blueocean.mall.generator.domain;
 
-import com.blueocean.mall.common.domain.IdentityModel;
+import com.blueocean.mall.common.jpa.domain.IdentityModel;
 import lombok.Data;
 
 import javax.persistence.Column;

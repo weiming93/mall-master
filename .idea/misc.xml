@@ -5,11 +5,13 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/mall-common/pom.xml" />
-        <option value="$PROJECT_DIR$/mall-common/mall-common-jpa/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/mall-common/mall-common-jpa/pom.xml" />
+        <option value="$PROJECT_DIR$/mall-common/mall-common-openapi/pom.xml" />
+        <option value="$PROJECT_DIR$/mall-common/mall-common-security/pom.xml" />
         <option value="$PROJECT_DIR$/mall-common/mall-common-webflux/pom.xml" />
       </set>
     </option>

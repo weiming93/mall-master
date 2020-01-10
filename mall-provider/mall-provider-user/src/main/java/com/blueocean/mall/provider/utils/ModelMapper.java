@@ -1,6 +1,6 @@
 package com.blueocean.mall.provider.utils;
 
-import com.blueocean.mall.common.core.UserPrincipal;
+import com.blueocean.mall.common.security.core.UserPrincipal;
 import com.blueocean.mall.provider.domain.User;
 import lombok.experimental.UtilityClass;
 import org.springframework.security.core.GrantedAuthority;

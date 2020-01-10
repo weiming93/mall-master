@@ -4,9 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/mall-common/mall-common.iml" filepath="$PROJECT_DIR$/mall-common/mall-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-common/mall-common-base/mall-common-base.iml" filepath="$PROJECT_DIR$/mall-common/mall-common-base/mall-common-base.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mall-common/mall-common-jpa/mall-common-jpa.iml" filepath="$PROJECT_DIR$/mall-common/mall-common-jpa/mall-common-jpa.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mall-common/mall-common-openapi/mall-common-openapi.iml" filepath="$PROJECT_DIR$/mall-common/mall-common-openapi/mall-common-openapi.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mall-common/mall-common-security/mall-common-security.iml" filepath="$PROJECT_DIR$/mall-common/mall-common-security/mall-common-security.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-common/mall-common-util/mall-common-util.iml" filepath="$PROJECT_DIR$/mall-common/mall-common-util/mall-common-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-master.iml" filepath="$PROJECT_DIR$/mall-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-provider/mall-provider.iml" filepath="$PROJECT_DIR$/mall-provider/mall-provider.iml" />

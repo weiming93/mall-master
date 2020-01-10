@@ -1,6 +1,6 @@
 package com.blueocean.mall.provider.domain;
 
-import com.blueocean.mall.common.domain.IdentityModel;
+import com.blueocean.mall.common.jpa.domain.IdentityModel;
 import com.blueocean.mall.provider.validator.ValidEmail;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

@@ -19,16 +19,7 @@
     <artifactId>mall-provider</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>com.blueocean.mall.common</groupId>
-            <artifactId>mall-common-jpa</artifactId>
-            <version>${mall.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.blueocean.mall.common</groupId>
-            <artifactId>mall-common-openapi</artifactId>
-            <version>${mall.version}</version>
-        </dependency>
+
         <dependency>
             <groupId>com.blueocean.mall.common</groupId>
             <artifactId>mall-common-base</artifactId>
@@ -40,12 +31,7 @@
             <artifactId>mall-common-util</artifactId>
             <version>${mall.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.blueocean.mall.common</groupId>
-            <artifactId>mall-common-security</artifactId>
-            <version>${mall.version}</version>
-        </dependency>
+        
     </dependencies>
 
 
