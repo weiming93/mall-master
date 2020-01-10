@@ -29,6 +29,6 @@ spring:
     time-zone: UTC
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false #禁用序列化Java 8 Data / Time值作为时间戳
-  config:
-    name: application-jpa-test
+
+
 

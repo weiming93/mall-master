@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Mono;
 
 import javax.validation.Valid;
 
@@ -22,8 +23,8 @@ public class UserController {
     @Operation(summary = "新增用户")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    @PreAuthorize("hasRole('user:create')")
-    public User create(@Valid @RequestBody User user){
+    @PreAuthorize("@el.check('user:create')")
+    public Mono<User> create(@Valid @RequestBody User user){
         return userService.create(user);
     }
 }

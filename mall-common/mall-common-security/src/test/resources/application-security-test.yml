@@ -1,8 +1,0 @@
-## jwt Properties
-mall:
-  jwt-secret: JWTSuperSecretKey
-  jwt-expiration-in-ms: 604800000
-
-spring:
-  config:
-    security-name: application-security-test

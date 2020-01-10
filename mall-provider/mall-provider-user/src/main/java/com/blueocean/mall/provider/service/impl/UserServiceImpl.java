@@ -10,6 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Scheduler;
 
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
@@ -21,22 +23,28 @@ public class UserServiceImpl implements UserService {
     @Autowired
     PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private Scheduler jdbcScheduler;
+
     @Override
-    public User findByUsernameOrEmail(String username, String email) {
-        return userRepository.findByUsernameOrEmail(username, email)
-                .orElseThrow(() -> new ResourceNotFoundException("账号", "username", username));
+    public Mono<User> findByUsernameOrEmail(String username, String email) {
+        return Mono
+            .defer(() -> Mono.justOrEmpty(userRepository.findByUsernameOrEmail(username, email)))
+            .switchIfEmpty(Mono.error(new ResourceNotFoundException("账号", "username", username)))
+            .subscribeOn(jdbcScheduler);
     }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public User create(User user) {
-        if(userRepository.existsByUsername(user.getUsername())) {
-            throw new EntityExistException("账号",user.getUsername());
+    public Mono<User> create(User user) {
+        if (userRepository.existsByUsername(user.getUsername())) {
+            throw new EntityExistException("账号", user.getUsername());
         }
-        if(userRepository.existsByEmail(user.getEmail())) {
-            throw new EntityExistException("邮箱",user.getEmail());
+        if (userRepository.existsByEmail(user.getEmail())) {
+            throw new EntityExistException("邮箱", user.getEmail());
         }
         user.setPassword(passwordEncoder.encode("123456"));
-        return userRepository.save(user);
+
+        return Mono.just(userRepository.save(user));
     }
 }

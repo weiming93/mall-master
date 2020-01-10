@@ -6,7 +6,3 @@ springdoc:
     path: /swagger-ui.html
     display-request-duration: true
   version: '@mall.version@'
-
-spring:
-  config:
-    name: application-openapi

@@ -5,10 +5,10 @@ import com.blueocean.mall.common.core.AuthenticationManager;
 import com.blueocean.mall.common.core.MallSecurityContextRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import reactor.core.publisher.Mono;
 
-import javax.annotation.PostConstruct;
+import static org.springframework.security.config.Customizer.withDefaults;
 
 /**
  *
@@ -27,14 +27,6 @@ import javax.annotation.PostConstruct;
 @EnableReactiveMethodSecurity
 @Slf4j
 public class WebSecurityConfig {
-
-	@Value("${spring.config.securityName}")
-	private String configName;
-
-	@PostConstruct
-	public void init(){
-		log.info("******加载security配置:{}******",configName);
-	}
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
@@ -62,13 +54,12 @@ public class WebSecurityConfig {
 					});
 				}).and()
 				.formLogin().disable()
-				.httpBasic().disable()
+				.httpBasic(withDefaults())
 				.authenticationManager(authenticationManager)
 				.securityContextRepository(securityContextRepository)
 				.authorizeExchange()
 				.pathMatchers(HttpMethod.OPTIONS).permitAll()
 				.pathMatchers("/api/auth/**").permitAll()
-				.pathMatchers("/**").hasRole("admin")
 				.anyExchange().authenticated()
 				.and().build();
 	}

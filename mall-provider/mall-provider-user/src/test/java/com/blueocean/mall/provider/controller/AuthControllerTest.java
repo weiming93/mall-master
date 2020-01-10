@@ -1,7 +1,6 @@
 package com.blueocean.mall.provider.controller;
 
-import com.blueocean.mall.provider.domain.User;
-import org.junit.jupiter.api.BeforeEach;
+import com.blueocean.mall.provider.payload.dto.LoginDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
@@ -12,34 +11,20 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 
 import static org.springframework.security.test.web.reactive.server.SecurityMockServerConfigurers.csrf;
 
-@WithMockUser(username = "admin", roles = "system:admin")
+@WithMockUser
 @SpringBootTest
 @AutoConfigureWebTestClient
-public class UserControllerTest {
-
+public class AuthControllerTest {
     @Autowired
     WebTestClient rest;
 
-    User user;
-
-    @BeforeEach
-    public void setUp() {
-        user = new User();
-        user.setName("张三");
-        user.setUsername("zhangsan");
-        user.setEmail("zhangsan@gmail.com");
-        user.setEnabled(true);
-        user.setPhone("13500000000");
-    }
-
     @Test
-    public void createUser() {
+    public void signin() {
         rest.mutateWith(csrf()).post()
-                .uri("/api/user")
+                .uri("/api/auth/signin")
                 .contentType(MediaType.APPLICATION_JSON)
-                .bodyValue(user)
+                .bodyValue(new LoginDto("zhangsan","123456"))
                 .exchange()
-                .expectStatus()
-                .isCreated();
+                .expectBody().consumeWith(System.out::println);
     }
 }

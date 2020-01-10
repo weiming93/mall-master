@@ -44,7 +44,6 @@ public class User extends IdentityModel {
     @NotNull
     private Boolean enabled;
 
-    @NotBlank
     private String password;
 
     @ManyToMany(fetch = FetchType.LAZY)

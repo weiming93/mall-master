@@ -11,7 +11,6 @@ import java.util.TimeZone;
 public class DefaultTimeZone {
     @PostConstruct
     void init() {
-        log.info("JPA - Starting...");
         TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
     }
 

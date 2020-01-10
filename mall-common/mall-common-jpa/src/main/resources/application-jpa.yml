@@ -16,7 +16,7 @@ spring:
       connection-test-query: SELECT 1
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
     show-sql: true
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
 
@@ -24,6 +24,4 @@ spring:
     time-zone: UTC
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false #禁用序列化Java 8 Data / Time值作为时间戳
-  config:
-    name: application-jpa
 
