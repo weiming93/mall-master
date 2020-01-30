@@ -6,14 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="mall-provider-generator" />
+        <module name="mall-provider-goods" />
         <module name="mall-common-util" />
-        <module name="mall-common-base" />
+        <module name="mall-business-user" />
         <module name="mall-provider-user" />
-        <module name="mall-provider-common" />
+        <module name="mall-business-goods" />
+        <module name="mall-nacos" />
+        <module name="mall-provider-generator" />
+        <module name="mall-common-base" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="business" target="1.8" />
+      <module name="mall-business" target="1.8" />
+      <module name="mall-business-goods" target="1.8" />
+      <module name="mall-business-user" target="1.8" />
       <module name="mall-common" target="1.8" />
       <module name="mall-common-base" target="1.8" />
       <module name="mall-common-core" target="1.8" />
@@ -22,15 +29,22 @@
       <module name="mall-common-security" target="1.8" />
       <module name="mall-common-util" target="1.8" />
       <module name="mall-common-webflux" target="1.8" />
+      <module name="mall-dependencies" target="1.5" />
       <module name="mall-master" target="1.8" />
+      <module name="mall-nacos" target="1.8" />
       <module name="mall-provider" target="1.8" />
       <module name="mall-provider-common" target="1.8" />
-      <module name="mall-provider-generator" target="1.8" />
-      <module name="mall-provider-user" target="1.8" />
+      <module name="mall-provider-generator" target="1.5" />
+      <module name="mall-provider-goods" target="1.8" />
+      <module name="mall-provider-user" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="business" options="-parameters" />
+      <module name="mall-business" options="-parameters" />
+      <module name="mall-business-goods" options="-parameters" />
+      <module name="mall-business-user" options="-parameters" />
       <module name="mall-common" options="-parameters" />
       <module name="mall-common-base" options="-parameters" />
       <module name="mall-common-core" options="-parameters" />
@@ -39,10 +53,13 @@
       <module name="mall-common-security" options="-parameters" />
       <module name="mall-common-util" options="-parameters" />
       <module name="mall-common-webflux" options="-parameters" />
+      <module name="mall-dependencies" options="" />
       <module name="mall-master" options="-parameters" />
+      <module name="mall-nacos" options="-parameters" />
       <module name="mall-provider" options="-parameters" />
       <module name="mall-provider-common" options="-parameters" />
       <module name="mall-provider-generator" options="-parameters" />
+      <module name="mall-provider-goods" options="-parameters" />
       <module name="mall-provider-user" options="-parameters" />
     </option>
   </component>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.emond.mall</groupId>
+    <artifactId>mall-dependencies</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <springdoc.version>1.2.21</springdoc.version>
+        <jjwt.version>0.9.0</jjwt.version>
+        <projections.version>2.0.0</projections.version>
+        <guava.version>28.2-jre</guava.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>com.emond.mall</groupId>
+                <artifactId>mall-provider-goods</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.emond.mall</groupId>
+                <artifactId>mall-common-base</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.emond.mall</groupId>
+                <artifactId>mall-common-util</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.emond.mall</groupId>
+                <artifactId>mall-provider-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.emond.mall</groupId>
+                <artifactId>mall-provider-generator</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.emond.mall</groupId>
+                <artifactId>mall-provider-user</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-webflux-ui</artifactId>
+                <version>${springdoc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-security</artifactId>
+                <version>${springdoc.version}</version>
+            </dependency>
+
+            <!-- For Working with Json Web Tokens (JWT) -->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>th.co.geniustree.springdata.jpa</groupId>
+                <artifactId>specification-with-projections</artifactId>
+                <version>${projections.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
