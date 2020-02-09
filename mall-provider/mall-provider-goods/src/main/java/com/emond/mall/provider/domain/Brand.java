@@ -17,20 +17,28 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Tag(name = "品牌")
 public class Brand extends IdentityModel {
+    /**
+     * 名牌名
+     */
     @NotBlank
-    @Column(unique = true, columnDefinition = "COMMENT '名牌名'")
     private String name;
 
+    /**
+     * 品牌图片
+     */
     @NotBlank
-    @Column(columnDefinition = "COMMENT '品牌图片'")
     private String image;
 
+    /**
+     * 品牌首字母
+     */
     @NotBlank
-    @Column(columnDefinition = "COMMENT '品牌首字母'")
     private String letter;
 
+    /**
+     * 排序
+     */
     @NotNull
-    @Column(columnDefinition = "COMMENT '排序'")
     private Integer seq;
 
 

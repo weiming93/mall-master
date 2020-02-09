@@ -1,5 +1,6 @@
 package com.emond.mall.provider.domain;
 
+import com.emond.mall.common.jpa.domain.IdentityModel;
 import com.emond.mall.provider.validator.ValidEmail;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

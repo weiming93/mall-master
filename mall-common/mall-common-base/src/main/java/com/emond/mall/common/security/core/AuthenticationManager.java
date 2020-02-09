@@ -21,25 +21,26 @@ public class AuthenticationManager implements ReactiveAuthenticationManager {
 	@Override
 	@SuppressWarnings("unchecked")
 	public Mono<Authentication> authenticate(Authentication authentication) {
-		String authToken = authentication.getCredentials().toString();
-		
-		Long userId;
-		try {
-			userId = jwtUtil.getUserIdFromToken(authToken);
-		} catch (Exception e) {
-			userId = null;
-		}
-		if (userId != null && jwtUtil.validateToken(authToken)) {
-			Claims claims = jwtUtil.getAllClaimsFromToken(authToken);
-			List<GrantedAuthority> grantedAuthorities = claims.get("role", List.class);
-
-			UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
-					userId, null, grantedAuthorities
-			);
-			SecurityContextHolder.getContext().setAuthentication(auth);
-			return Mono.just(auth);
-		} else {
-			return Mono.empty();
-		}
+//		String authToken = authentication.getCredentials().toString();
+//
+//		Long userId;
+//		try {
+//			userId = jwtUtil.getUserIdFromToken(authToken);
+//		} catch (Exception e) {
+//			userId = null;
+//		}
+//		if (userId != null && jwtUtil.validateToken(authToken)) {
+//			Claims claims = jwtUtil.getAllClaimsFromToken(authToken);
+//			List<GrantedAuthority> grantedAuthorities = claims.get("role", List.class);
+//
+//			UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(
+//					userId, null, grantedAuthorities
+//			);
+//			SecurityContextHolder.getContext().setAuthentication(auth);
+//			return Mono.just(auth);
+//		} else {
+// 			return Mono.empty();
+//		}
+        return Mono.empty();
 	}
 }

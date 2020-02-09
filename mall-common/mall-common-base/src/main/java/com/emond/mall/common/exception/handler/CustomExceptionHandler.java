@@ -1,10 +1,11 @@
 package com.emond.mall.common.exception.handler;
 
+import com.emond.mall.common.ThrowableUtil;
 import com.emond.mall.common.exception.BadRequestException;
 import com.emond.mall.common.exception.EntityExistException;
 import com.emond.mall.common.exception.ResourceNotFoundException;
-import io.netty.util.internal.ThrowableUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -16,6 +17,7 @@ import reactor.core.publisher.Mono;
 import java.util.Objects;
 
 @Slf4j
+@Configuration
 @RestControllerAdvice
 public class CustomExceptionHandler {
     /**

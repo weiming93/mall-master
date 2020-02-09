@@ -1,7 +1,4 @@
 spring:
-  profiles:
-    include: base
-
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: org.h2.Driver

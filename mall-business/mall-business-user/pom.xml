@@ -12,6 +12,9 @@
     <artifactId>mall-business-user</artifactId>
 
     <dependencies>
-
+        <dependency>
+            <groupId>com.emond.mall</groupId>
+            <artifactId>mall-provider-user</artifactId>
+        </dependency>
     </dependencies>
 </project>

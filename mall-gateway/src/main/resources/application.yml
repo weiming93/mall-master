@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: mall-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      filter:
+        enabled: false
+      transport:
+        dashboard: localhost:8080
+    gateway:
+      enabled: true #Gateway开启服务注册和发现的功能
+      discovery:
+        locator:
+          lower-case-service-id: true #请求路径上的服务名配置为小写
+      routes:
+        # 认证服务路由
+        - id: mall-auth
+          uri: lb://mall-auth
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1 # /auth/** 转发成 /**
+            - AddRequestHeader=X-Request-red, blue
+
+server:
+  port: 8090
+
+
+

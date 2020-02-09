@@ -2,7 +2,8 @@ package com.emond.mall.provider.domain;
 
 import com.emond.mall.common.jpa.domain.IdentityModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-\import lombok.EqualsAndHashCode;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 

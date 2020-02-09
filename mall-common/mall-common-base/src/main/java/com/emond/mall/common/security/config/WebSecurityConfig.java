@@ -26,7 +26,7 @@ public class WebSecurityConfig {
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
-	
+
 	@Autowired
 	private MallSecurityContextRepository securityContextRepository;
 
@@ -37,7 +37,7 @@ public class WebSecurityConfig {
 	}
 
 	@Bean
-	public SecurityWebFilterChain securitygWebFilterChain(ServerHttpSecurity http) {
+	public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
 		return http
 				.exceptionHandling()
 				.authenticationEntryPoint((swe, e) -> {
@@ -54,8 +54,7 @@ public class WebSecurityConfig {
 				.authenticationManager(authenticationManager)
 				.securityContextRepository(securityContextRepository)
 				.authorizeExchange()
-				.pathMatchers(HttpMethod.OPTIONS).permitAll()
-				.pathMatchers("/api/auth/**").permitAll()
+				.pathMatchers("/**").permitAll()
 				.anyExchange().authenticated()
 				.and().build();
 	}

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mall-auth" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall-business" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall-business/mall-business-goods" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall-business/mall-business-user" charset="UTF-8" />
@@ -9,6 +10,7 @@
     <file url="file://$PROJECT_DIR$/mall-common/mall-common-base" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall-common/mall-common-util" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall-dependencies" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mall-gateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall-nacos" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall-provider" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mall-provider/mall-provider-generator" charset="UTF-8" />

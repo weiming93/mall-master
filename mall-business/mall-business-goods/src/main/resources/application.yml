@@ -1,5 +1,19 @@
 spring:
   profiles:
     include: base
+  application:
+    name: mall-business-goods
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
 server:
   port: 9010
+
+
+
+security:
+  oauth2:
+    resource:
+      id: ${spring.application.name}
+      user-info-uri: http://localhost:8090/auth/user
