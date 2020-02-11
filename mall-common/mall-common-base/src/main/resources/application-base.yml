@@ -25,16 +25,8 @@ spring:
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false #禁用序列化Java 8 Data / Time值作为时间戳
 
-springdoc:
-  api-docs:
-    groups:
-      enabled: true
-  swagger-ui:
-    path: /swagger-ui.html
-    display-request-duration: true
-  version: '@mall.version@'
-
-## jwt Properties
-mall:
-  jwt-secret: JWTSuperSecretKey
-  jwt-expiration-in-ms: 604800000
+base:
+  config:
+    nacos:
+      hostname: localhost
+      port: 8848

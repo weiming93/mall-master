@@ -12,7 +12,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import reactor.core.publisher.Mono;
 
 import java.util.Objects;
 
@@ -25,10 +24,10 @@ public class CustomExceptionHandler {
      */
     @ExceptionHandler(Throwable.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public Mono<String> exceptionRest(Throwable e){
+    public String exceptionRest(Throwable e){
         // 打印堆栈信息
         log.error(ThrowableUtil.stackTraceToString(e));
-        return Mono.just("服务器异常");
+        return "服务器异常";
     }
 
     /**
@@ -36,10 +35,10 @@ public class CustomExceptionHandler {
      */
     @ExceptionHandler(AccessDeniedException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)
-    public Mono<String> exceptionRest(AccessDeniedException e){
+    public String exceptionRest(AccessDeniedException e){
         // 打印堆栈信息
         log.error(ThrowableUtil.stackTraceToString(e));
-        return Mono.just(e.getMessage());
+        return e.getMessage();
     }
 
     /**
@@ -47,10 +46,10 @@ public class CustomExceptionHandler {
      */
     @ExceptionHandler(value = BadRequestException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Mono<String> exceptionRest(BadRequestException e) {
+    public String exceptionRest(BadRequestException e) {
         // 打印堆栈信息
         log.error(ThrowableUtil.stackTraceToString(e));
-        return Mono.just(e.getMessage());
+        return e.getMessage();
     }
 
     /**
@@ -58,10 +57,10 @@ public class CustomExceptionHandler {
      */
     @ExceptionHandler(value = ResourceNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public Mono<String> exceptionRest(ResourceNotFoundException e) {
+    public String exceptionRest(ResourceNotFoundException e) {
         // 打印堆栈信息
         log.error(ThrowableUtil.stackTraceToString(e));
-        return Mono.just(e.getMessage());
+        return e.getMessage();
     }
 
     /**
@@ -69,17 +68,17 @@ public class CustomExceptionHandler {
      */
     @ExceptionHandler(value = EntityExistException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Mono<String> exceptionRest(EntityExistException e) {
+    public String exceptionRest(EntityExistException e) {
         // 打印堆栈信息
         log.error(ThrowableUtil.stackTraceToString(e));
-        return Mono.just(e.getMessage());
+        return e.getMessage();
     }
 
     /**
      * 处理所有接口数据验证异常
      */
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public Mono<String> handleMethodArgumentNotValidException(MethodArgumentNotValidException e){
+    public String handleMethodArgumentNotValidException(MethodArgumentNotValidException e){
         // 打印堆栈信息
         log.error(ThrowableUtil.stackTraceToString(e));
         String[] str = Objects.requireNonNull(e.getBindingResult().getAllErrors().get(0).getCodes())[1].split("\\.");
@@ -87,6 +86,6 @@ public class CustomExceptionHandler {
         if("不能为空".equals(message)){
             message = str[1] + ":" + message;
         }
-        return Mono.just(message);
+        return message;
     }
 }

@@ -1,6 +1,9 @@
 package com.emond.mall.auth.config;
 
+import com.emond.mall.auth.properties.AuthProperties;
+import com.emond.mall.auth.properties.ClientsProperties;
 import com.emond.mall.auth.service.impl.CustomUserDetailsService;
+import com.emond.mall.common.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,13 +35,26 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private AuthProperties authProperties;
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory()
-                .withClient("mall")
-                .secret(passwordEncoder.encode("123456"))
-                .authorizedGrantTypes("password", "refresh_token")
-                .scopes("all");
+        ClientsProperties[] clientsProperties = authProperties.getClients();
+        for (ClientsProperties clientsProperty : clientsProperties) {
+            if (StringUtils.isBlank(clientsProperty.getClient())){
+                throw new Exception("client不能为空");
+            }
+            if (StringUtils.isBlank(clientsProperty.getSecret())) {
+                throw new Exception("secret不能为空");
+            }
+            String[] grantTypes  = StringUtils.splitByWholeSeparator(clientsProperty.getGrantType(), ",");
+            clients.inMemory()
+                    .withClient(clientsProperty.getClient())
+                    .secret(passwordEncoder.encode(clientsProperty.getSecret()))
+                    .authorizedGrantTypes(grantTypes)
+                    .scopes(clientsProperty.getScope());
+        }
+
     }
 
     @Override
@@ -60,8 +76,8 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
         DefaultTokenServices tokenServices = new DefaultTokenServices();
         tokenServices.setTokenStore(tokenStore());
         tokenServices.setSupportRefreshToken(true);
-        tokenServices.setAccessTokenValiditySeconds(60 * 60 * 24);
-        tokenServices.setRefreshTokenValiditySeconds(60 * 60 * 24 * 7);
+        tokenServices.setAccessTokenValiditySeconds(authProperties.getAccessTokenValiditySeconds());
+        tokenServices.setRefreshTokenValiditySeconds(authProperties.getRefreshTokenValiditySeconds());
         return tokenServices;
     }
 }

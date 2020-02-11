@@ -7,8 +7,17 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+  main:
+    allow-bean-definition-overriding: true
+dubbo:
+  scan:
+    base-packages: com.emond.mall.business.user.rpc
+  protocol:
+    name: dubbo
+    port: -1
+    serialization: kryo
+  registry:
+    address: spring-cloud://localhost
+
 server:
-  port: 9020
-
-
-
+  port: 9100

@@ -1,0 +1,21 @@
+package com.emond.mall.auth.properties;
+
+import lombok.Data;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
+
+/**
+ * @description: Auth相关的配置类
+ * @author: Emond Chan
+ */
+@Data
+@SpringBootConfiguration
+@PropertySource(value = {"classpath:mall-auth.properties"})
+@ConfigurationProperties(prefix = "mall.auth")
+public class AuthProperties {
+
+    private ClientsProperties[] clients = {};
+    private int accessTokenValiditySeconds = 60 * 60 * 24;
+    private int refreshTokenValiditySeconds = 60 * 60 * 24 * 7;
+}

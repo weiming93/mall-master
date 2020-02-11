@@ -5,14 +5,15 @@
       <module fileurl="file://$PROJECT_DIR$/mall-auth/mall-auth.iml" filepath="$PROJECT_DIR$/mall-auth/mall-auth.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-business/mall-business.iml" filepath="$PROJECT_DIR$/mall-business/mall-business.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-business/mall-business-goods/mall-business-goods.iml" filepath="$PROJECT_DIR$/mall-business/mall-business-goods/mall-business-goods.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-business/mall-business-test/mall-business-test.iml" filepath="$PROJECT_DIR$/mall-business/mall-business-test/mall-business-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-business/mall-business-user/mall-business-user.iml" filepath="$PROJECT_DIR$/mall-business/mall-business-user/mall-business-user.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-common/mall-common.iml" filepath="$PROJECT_DIR$/mall-common/mall-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-common/mall-common-base/mall-common-base.iml" filepath="$PROJECT_DIR$/mall-common/mall-common-base/mall-common-base.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-common/mall-common-util/mall-common-util.iml" filepath="$PROJECT_DIR$/mall-common/mall-common-util/mall-common-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mall-config/mall-config.iml" filepath="$PROJECT_DIR$/mall-config/mall-config.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-dependencies/mall-dependencies.iml" filepath="$PROJECT_DIR$/mall-dependencies/mall-dependencies.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-gateway/mall-gateway.iml" filepath="$PROJECT_DIR$/mall-gateway/mall-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-master.iml" filepath="$PROJECT_DIR$/mall-master.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mall-nacos/mall-nacos.iml" filepath="$PROJECT_DIR$/mall-nacos/mall-nacos.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-provider/mall-provider.iml" filepath="$PROJECT_DIR$/mall-provider/mall-provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-provider/mall-provider-generator/mall-provider-generator.iml" filepath="$PROJECT_DIR$/mall-provider/mall-provider-generator/mall-provider-generator.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-provider/mall-provider-goods/mall-provider-goods.iml" filepath="$PROJECT_DIR$/mall-provider/mall-provider-goods/mall-provider-goods.iml" />

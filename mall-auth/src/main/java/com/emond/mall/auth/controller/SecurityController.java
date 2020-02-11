@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.Principal;
 
 /**
  * @description:
@@ -21,6 +22,12 @@ public class SecurityController {
     public String testOauth() {
         return "oauth";
     }
+
+    @GetMapping("user")
+    public Principal currentUser(Principal principal) {
+        return principal;
+    }
+
 
     @DeleteMapping("signout")
     public String signout(HttpServletRequest request) throws Exception {

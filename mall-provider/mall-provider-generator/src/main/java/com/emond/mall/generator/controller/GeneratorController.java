@@ -6,8 +6,7 @@ import com.emond.mall.generator.payload.ColumnDto;
 import com.emond.mall.generator.payload.ColumnProjection;
 import com.emond.mall.generator.payload.TableProjection;
 import com.emond.mall.generator.service.GeneratorService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -20,7 +19,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/generator")
-@Tag(name = "系统：代码生成")
 public class GeneratorController {
 
     @Autowired
@@ -29,21 +27,33 @@ public class GeneratorController {
     @Value("${generator.enabled}")
     private Boolean generatorEnabled;
 
-    @Operation(summary = "查询生成器配置管理")
+    /**
+     * 查询生成器配置管理
+     * @return
+     */
     @GetMapping("/genConfig")
     @ResponseStatus(HttpStatus.OK)
     public GenConfig getGenConfig() {
         return generatorService.find();
     }
 
-    @Operation(summary = "更新生成器配置管理")
+    /**
+     * 查询生成器配置管理
+     * @param genConfig
+     * @return
+     */
     @PutMapping("/genConfig")
     @ResponseStatus(HttpStatus.OK)
     public GenConfig updateGenConfig(@Valid @RequestBody GenConfig genConfig) {
         return generatorService.update(genConfig);
     }
 
-    @Operation(summary = "查询数据库元数据")
+    /**
+     * 查询数据库元数据
+     * @param tableName
+     * @param pageable
+     * @return
+     */
     @GetMapping("/tables")
     @ResponseStatus(HttpStatus.OK)
     public Page<TableProjection> getTables(@RequestParam String tableName,
@@ -51,14 +61,22 @@ public class GeneratorController {
         return generatorService.findPagedTableProjectedByTableName(tableName, pageable);
     }
 
-    @Operation(summary = "查询表内元数据")
+    /**
+     * 查询表内元数据
+      * @param tableName
+     * @return
+     */
     @GetMapping("/columns")
     @ResponseStatus(HttpStatus.OK)
     public List<ColumnProjection> getColumns(@RequestParam String tableName) {
         return generatorService.findColumnProjectionsByTableName(tableName);
     }
 
-    @Operation(summary = "生成代码")
+    /**
+     * 生成代码
+     * @param columnDtos
+     * @param tableName
+     */
     @PostMapping("/generate")
     @ResponseStatus(HttpStatus.CREATED)
     public void generate(@RequestBody List<ColumnDto> columnDtos, @RequestParam String tableName){

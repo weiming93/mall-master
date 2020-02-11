@@ -5,8 +5,21 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+  main:
+    allow-bean-definition-overriding: true
+dubbo:
+  protocol:
+    name: dubbo
+    port: -1
+    serialization: kryo
+  registry:
+    address: spring-cloud://localhost
+  cloud:
+    subscribed-services: mall-business-user
+  consumer:
+    check: false
 server:
-  port: 8900
+  port: 9010
 
 
 

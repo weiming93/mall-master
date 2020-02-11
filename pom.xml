@@ -7,7 +7,7 @@
         <module>mall-dependencies</module>
         <module>mall-common</module>
         <module>mall-provider</module>
-        <module>mall-nacos</module>
+        <module>mall-config</module>
         <module>mall-business</module>
         <module>mall-gateway</module>
         <module>mall-auth</module>

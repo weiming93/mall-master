@@ -1,6 +1,7 @@
 package com.emond.mall.common;
 
 import com.google.common.base.CaseFormat;
+import com.google.common.base.Splitter;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
@@ -62,5 +63,18 @@ public class StringUtils{
             return s.replaceFirst(prefix,"");
         }
         return s;
+    }
+
+    /**
+     * 字符串通过分隔符转数组
+     * @param s
+     * @param separator
+     * @return
+     */
+    public String[] splitByWholeSeparator(String s, String separator){
+        if (isBlank(s)){
+            return new String[]{};
+        }
+        return s.split(separator);
     }
 }

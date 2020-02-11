@@ -1,6 +1,6 @@
 package com.emond.mall.business.repository;
 
-import com.emond.mall.provider.domain.Brand;
+import com.emond.mall.provider.user.domain.Brand;
 import org.springframework.data.jpa.repository.JpaRepository;
 import th.co.geniustree.springdata.jpa.repository.JpaSpecificationExecutorWithProjection;
 

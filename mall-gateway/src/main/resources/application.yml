@@ -23,8 +23,12 @@ spring:
             - Path=/auth/**
           filters:
             - StripPrefix=1 # /auth/** 转发成 /**
-            - AddRequestHeader=X-Request-red, blue
-
+        - id: mall-business-test
+          uri: lb://mall-business-test
+          predicates:
+            - Path=/test/**
+          filters:
+            - StripPrefix=1
 server:
   port: 8090
 

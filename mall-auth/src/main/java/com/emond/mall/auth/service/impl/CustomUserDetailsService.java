@@ -1,6 +1,9 @@
 package com.emond.mall.auth.service.impl;
 
 import com.emond.mall.auth.domain.UserPrincipal;
+import com.emond.mall.provider.user.domain.User;
+import com.emond.mall.provider.user.rpc.UserQueryRpc;
+import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,13 +19,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    @Reference
+    private UserQueryRpc userQueryRpc;
+
     @Override
     public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {
 
-        return new UserPrincipal(1l,"admin",
-                usernameOrEmail,usernameOrEmail,passwordEncoder.encode("123456"),
-                true, AuthorityUtils.commaSeparatedStringToAuthorityList("user:add"));
+        User user = userQueryRpc.loadUserByUsername(usernameOrEmail);
+        return UserPrincipal.create(user);
     }
 }
