@@ -1,17 +1,16 @@
 package com.emond.mall.business.user.service.impl;
 
+import com.emond.mall.business.user.repository.DeptRepository;
+import com.emond.mall.business.user.service.DeptService;
 import com.emond.mall.common.exception.BadRequestException;
 import com.emond.mall.common.exception.ResourceNotFoundException;
 import com.emond.mall.provider.user.domain.Dept;
-import com.emond.mall.business.user.repository.DeptRepository;
-import com.emond.mall.business.user.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
+@Transactional(readOnly = true, rollbackFor = Exception.class)
 public class DeptServiceImpl implements DeptService {
 
     @Autowired

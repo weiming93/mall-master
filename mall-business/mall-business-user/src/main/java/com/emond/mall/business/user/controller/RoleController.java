@@ -1,6 +1,6 @@
 package com.emond.mall.business.user.controller;
 
-import com.emond.mall.common.jpa.domain.Create;
+import com.emond.mall.common.domain.Create;
 import com.emond.mall.provider.user.domain.Role;
 
 import com.emond.mall.business.user.service.RoleService;

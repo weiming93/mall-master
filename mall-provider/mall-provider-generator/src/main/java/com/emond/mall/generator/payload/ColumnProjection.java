@@ -1,7 +1,7 @@
 package com.emond.mall.generator.payload;
 
 
-import com.emond.mall.common.jpa.projection.BaseProjection;
+import com.emond.mall.common.domain.BaseProjection;
 
 public interface ColumnProjection extends BaseProjection {
     // 数据库字段名称

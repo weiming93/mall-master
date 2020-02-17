@@ -1,7 +1,7 @@
 package com.emond.mall.business.user.payload.projection;
 
 
-import com.emond.mall.common.jpa.projection.BaseProjection;
+import com.emond.mall.common.domain.BaseProjection;
 
 public interface DeptProjection extends BaseProjection {
 

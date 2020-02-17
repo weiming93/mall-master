@@ -9,15 +9,32 @@ spring:
         server-addr: 127.0.0.1:8848
   main:
     allow-bean-definition-overriding: true
-dubbo:
-  scan:
-    base-packages: com.emond.mall.business.user.rpc
-  protocol:
-    name: dubbo
-    port: -1
-    serialization: kryo
-  registry:
-    address: spring-cloud://localhost
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        min-idle: 8
+        max-idle: 500
+        max-active: 2000
+        max-wait: 10000
+    timeout: 5000
+#dubbo:
+#  scan:
+#    base-packages: com.emond.mall.business.user.rpc
+#  protocol:
+#    name: dubbo
+#    port: -1
+#    serialization:  kryo
+#  registry:
+#    address: spring-cloud://localhost
 
 server:
   port: 9100
+
+security:
+  oauth2:
+    resource:
+      id: ${spring.application.name}
+      user-info-uri: http://localhost:9000/auth/user

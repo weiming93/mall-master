@@ -8,11 +8,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-import th.co.geniustree.springdata.jpa.repository.JpaSpecificationExecutorWithProjection;
-
 import java.util.List;
 
-public interface GeneratorRepository extends JpaRepository<GenConfig,Long>, JpaSpecificationExecutorWithProjection {
+public interface GeneratorRepository extends JpaRepository<GenConfig,Long> {
 
     @Query(
             value = "select table_name AS tableName ,create_time AS createTime , engine, table_collation AS tableCollation, table_comment AS tableComment from information_schema.tables " +

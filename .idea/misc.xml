@@ -10,6 +10,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/business/pom.xml" />
+        <option value="$PROJECT_DIR$/mall-business/mall-business-test/pom.xml" />
         <option value="$PROJECT_DIR$/mall-common/mall-common-jpa/pom.xml" />
         <option value="$PROJECT_DIR$/mall-common/mall-common-openapi/pom.xml" />
         <option value="$PROJECT_DIR$/mall-common/mall-common-security/pom.xml" />

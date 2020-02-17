@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    include: base
   application:
     name: mall-auth
   cloud:
@@ -7,17 +9,18 @@ spring:
         server-addr: 127.0.0.1:8848
   main:
     allow-bean-definition-overriding: true
-dubbo:
-  protocol:
-    name: dubbo
-    port: -1
-    serialization: kryo
-  registry:
-    address: spring-cloud://localhost
-  cloud:
-    subscribed-services: mall-business-user
-  consumer:
-    check: false
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        min-idle: 8
+        max-idle: 500
+        max-active: 2000
+        max-wait: 10000
+    timeout: 5000
+
 server:
   port: 9010
 

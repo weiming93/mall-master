@@ -1,3 +1,5 @@
+server:
+  port: 9000
 spring:
   application:
     name: mall-gateway
@@ -16,21 +18,38 @@ spring:
         locator:
           lower-case-service-id: true #请求路径上的服务名配置为小写
       routes:
-        # 认证服务路由
+        # 认证服务
         - id: mall-auth
           uri: lb://mall-auth
           predicates:
             - Path=/auth/**
           filters:
-            - StripPrefix=1 # /auth/** 转发成 /**
-        - id: mall-business-test
-          uri: lb://mall-business-test
+#            - name: CircuitBreaker
+#              args:
+#                name: authCircuitBreaker
+#                fallbackUri: forward:/fallback/mall-auth
+        # 用户服务
+        - id: mall-business-user
+          uri: lb://mall-business-user
           predicates:
-            - Path=/test/**
+            - Path=/user/**
           filters:
-            - StripPrefix=1
-server:
-  port: 8090
+#            - name: CircuitBreaker
+#              args:
+#                name: authCircuitBreaker
+#                fallbackUri: forward:/fallback/mall-business-user
+      default-filters:
+        - StripPrefix=1
+  main:
+    allow-bean-definition-overriding: true
+  boot:
+    admin:
+      client:
+        url: http://localhost:9200
+        username: monitor
+        password: 123456
+
+
 
 
 

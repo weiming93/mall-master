@@ -1,6 +1,6 @@
 package com.emond.mall.generator.domain;
 
-import com.emond.mall.common.jpa.domain.IdentityModel;
+import com.emond.mall.common.domain.IdentityModel;
 import lombok.Data;
 
 import javax.persistence.Column;

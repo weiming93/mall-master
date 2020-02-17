@@ -12,6 +12,10 @@
     <artifactId>mall-auth</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.emond.mall</groupId>
+            <artifactId>mall-common-core</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.emond.mall</groupId>
@@ -20,11 +24,7 @@
 
         <dependency>
             <groupId>com.emond.mall</groupId>
-            <artifactId>mall-provider-user</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <artifactId>mall-provider-user-api</artifactId>
         </dependency>
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -51,15 +51,23 @@
             <optional>true</optional>
         </dependency>
 
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-actuator</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-dubbo</artifactId>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 </project>

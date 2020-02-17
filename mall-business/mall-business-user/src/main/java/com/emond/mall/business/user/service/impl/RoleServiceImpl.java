@@ -1,16 +1,15 @@
 package com.emond.mall.business.user.service.impl;
 
 import com.emond.mall.business.user.repository.RoleRepository;
+import com.emond.mall.business.user.service.RoleService;
 import com.emond.mall.common.exception.EntityExistException;
 import com.emond.mall.provider.user.domain.Role;
-import com.emond.mall.business.user.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
+@Transactional(readOnly = true, rollbackFor = Exception.class)
 public class RoleServiceImpl implements RoleService {
 
     @Autowired

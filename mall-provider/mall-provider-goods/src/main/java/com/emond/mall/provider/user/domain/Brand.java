@@ -1,6 +1,6 @@
 package com.emond.mall.provider.user.domain;
 
-import com.emond.mall.common.jpa.domain.IdentityModel;
+import com.emond.mall.common.domain.IdentityModel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;

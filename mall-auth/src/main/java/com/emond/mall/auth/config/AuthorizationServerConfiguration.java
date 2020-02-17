@@ -2,8 +2,10 @@ package com.emond.mall.auth.config;
 
 import com.emond.mall.auth.properties.AuthProperties;
 import com.emond.mall.auth.properties.ClientsProperties;
-import com.emond.mall.auth.service.impl.CustomUserDetailsService;
-import com.emond.mall.common.StringUtils;
+import com.emond.mall.auth.service.CustomUserDetailsService;
+import com.emond.mall.auth.translator.AuthWebResponseExceptionTranslator;
+import com.emond.mall.common.MallStringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +20,9 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
+
+import java.util.UUID;
+
 /**
  * @description: 认证配置类
  * @author: Emond Chan
@@ -37,6 +42,10 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 
     @Autowired
     private AuthProperties authProperties;
+
+    @Autowired
+    private AuthWebResponseExceptionTranslator authWebResponseExceptionTranslator;
+
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         ClientsProperties[] clientsProperties = authProperties.getClients();
@@ -62,12 +71,16 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
         endpoints.tokenStore(tokenStore())
                 .userDetailsService(customUserDetailsService)
                 .authenticationManager(authenticationManager)
-                .tokenServices(defaultTokenServices());
+                .tokenServices(defaultTokenServices())
+                .exceptionTranslator(authWebResponseExceptionTranslator);
     }
 
     @Bean
     public TokenStore tokenStore() {
-        return new RedisTokenStore(redisConnectionFactory);
+        RedisTokenStore redisTokenStore = new RedisTokenStore(redisConnectionFactory);
+        // 解决每次生成的 token都一样的问题
+        redisTokenStore.setAuthenticationKeyGenerator(oAuth2Authentication -> UUID.randomUUID().toString());
+        return redisTokenStore;
     }
 
     @Primary

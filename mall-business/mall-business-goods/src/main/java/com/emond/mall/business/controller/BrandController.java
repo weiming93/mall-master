@@ -1,8 +1,8 @@
 //package com.emond.mall.business.controller;
 //
 //import com.emond.mall.business.service.BrandService;
-//import com.emond.mall.common.jpa.domain.Create;
-//import com.emond.mall.common.jpa.domain.Update;
+//import com.emond.mall.common.domain.Create;
+//import com.emond.mall.common.domain.Update;
 //import com.emond.mall.provider.domain.Brand;
 //import io.swagger.v3.oas.annotations.Operation;
 //import io.swagger.v3.oas.annotations.tags.Tag;

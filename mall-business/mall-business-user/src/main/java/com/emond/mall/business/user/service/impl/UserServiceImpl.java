@@ -1,20 +1,20 @@
 package com.emond.mall.business.user.service.impl;
 
+import com.emond.mall.business.user.mapper.UserMapper;
 import com.emond.mall.business.user.repository.UserRepository;
 import com.emond.mall.business.user.service.UserService;
 import com.emond.mall.common.exception.EntityExistException;
 import com.emond.mall.common.exception.ResourceNotFoundException;
-
 import com.emond.mall.provider.user.domain.User;
+import com.emond.mall.provider.user.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
-@Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
+@Transactional(readOnly = true, rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -23,11 +23,14 @@ public class UserServiceImpl implements UserService {
     @Autowired
     PasswordEncoder passwordEncoder;
 
+    @Autowired
+    private UserMapper userMapper;
 
     @Override
-    public User findByUsernameOrEmail(String username, String email) {
-        return userRepository.findByUsernameOrEmail(username,email)
+    public UserDto findByUsernameOrEmail(String username, String email) {
+        User user = userRepository.findByUsernameOrEmail(username, email)
                 .orElseThrow(() -> new ResourceNotFoundException("账号", "username", username));
+        return  userMapper.toDto(user);
     }
 
     @Override

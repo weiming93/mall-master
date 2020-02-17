@@ -6,12 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="mall-monitor-admin" />
         <module name="mall-provider-goods" />
+        <module name="mall-common-core" />
         <module name="mall-auth" />
         <module name="mall-common-util" />
         <module name="mall-business-user" />
-        <module name="mall-provider-user" />
-        <module name="mall-business-test" />
+        <module name="mall-provider-user-api" />
         <module name="mall-business-goods" />
         <module name="mall-provider-generator" />
         <module name="mall-gateway" />
@@ -38,18 +39,20 @@
       <module name="mall-dependencies" target="1.8" />
       <module name="mall-gateway" target="1.8" />
       <module name="mall-master" target="1.8" />
+      <module name="mall-monitor" target="1.8" />
+      <module name="mall-monitor-admin" target="1.8" />
       <module name="mall-provider" target="1.8" />
       <module name="mall-provider-common" target="1.8" />
       <module name="mall-provider-generator" target="1.8" />
       <module name="mall-provider-goods" target="1.8" />
-      <module name="mall-provider-user" target="1.8" />
+      <module name="mall-provider-user-api" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="business" options="-parameters" />
       <module name="mall-auth" options="-parameters" />
-      <module name="mall-business" options="-parameters" />
+      <module name="mall-business" options="" />
       <module name="mall-business-goods" options="-parameters" />
       <module name="mall-business-test" options="-parameters" />
       <module name="mall-business-user" options="-parameters" />
@@ -65,11 +68,13 @@
       <module name="mall-dependencies" options="" />
       <module name="mall-gateway" options="-parameters" />
       <module name="mall-master" options="-parameters" />
+      <module name="mall-monitor" options="-parameters" />
+      <module name="mall-monitor-admin" options="-parameters" />
       <module name="mall-provider" options="-parameters" />
       <module name="mall-provider-common" options="-parameters" />
       <module name="mall-provider-generator" options="-parameters" />
       <module name="mall-provider-goods" options="-parameters" />
-      <module name="mall-provider-user" options="-parameters" />
+      <module name="mall-provider-user-api" options="-parameters" />
     </option>
   </component>
 </project>

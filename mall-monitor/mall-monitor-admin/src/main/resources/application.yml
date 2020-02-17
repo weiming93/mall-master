@@ -1,0 +1,20 @@
+server:
+  port: 9200
+
+spring:
+  application:
+    name: mall-monitor-admin
+  boot:
+    admin:
+      ui:
+        title: ${spring.application.name}
+  security:
+    user:
+      name: monitor
+      password: 123456
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  main:
+    allow-bean-definition-overriding: true

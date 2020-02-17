@@ -1,7 +1,7 @@
 package com.emond.mall.generator.utils;
 
 
-import com.emond.mall.common.StringUtils;
+import com.emond.mall.common.MallStringUtils;
 import com.emond.mall.generator.domain.GenConfig;
 import com.emond.mall.generator.payload.ColumnDto;
 import com.google.common.io.Files;
@@ -10,6 +10,7 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateExceptionHandler;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.util.ObjectUtils;
 
 import java.io.File;
@@ -76,13 +77,13 @@ public class GenUtil {
         map.put("author",genConfig.getAuthor());
         map.put("date", LocalDate.now().toString());
         map.put("tableName",tableName);
-        String className = StringUtils.toCapitalizeCamelCase(tableName);
-        String changeClassName = StringUtils.toCamelCase(tableName);
+        String className = MallStringUtils.toCapitalizeCamelCase(tableName);
+        String changeClassName = MallStringUtils.toCamelCase(tableName);
 
         // 判断是否去除表前缀
-        if (StringUtils.isNotBlank(genConfig.getPrefix())) {
-            className = StringUtils.toCapitalizeCamelCase(StringUtils.removePrefix(tableName,genConfig.getPrefix()));
-            changeClassName = StringUtils.toCamelCase(StringUtils.removePrefix(tableName,genConfig.getPrefix()));
+        if (StringUtils.isNoneBlank(genConfig.getPrefix())) {
+            className = MallStringUtils.toCapitalizeCamelCase(StringUtils.removeStart(tableName,genConfig.getPrefix()));
+            changeClassName = MallStringUtils.toCamelCase(StringUtils.removeStart(tableName,genConfig.getPrefix()));
         }
         map.put("className", className);
         map.put("upperCaseClassName", className.toUpperCase());
@@ -102,8 +103,8 @@ public class GenUtil {
             listMap.put("columnKey",column.getColumnKey());
 
             String colType = ColUtil.cloToJava(column.getColumnType().toString());
-            String changeColumnName = StringUtils.toCamelCase(column.getColumnName());
-            String capitalColumnName = StringUtils.toCapitalizeCamelCase(column.getColumnName());
+            String changeColumnName = MallStringUtils.toCamelCase(column.getColumnName());
+            String capitalColumnName = MallStringUtils.toCapitalizeCamelCase(column.getColumnName());
             if(PK.equals(column.getColumnKey())){
                 map.put("pkColumnType",colType);
                 map.put("pkChangeColName",changeColumnName);

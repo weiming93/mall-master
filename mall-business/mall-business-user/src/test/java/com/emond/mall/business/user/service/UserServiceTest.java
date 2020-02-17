@@ -1,17 +1,20 @@
 package com.emond.mall.business.user.service;
-import java.time.Instant;
 
 import com.emond.mall.provider.user.domain.Role;
+import com.emond.mall.provider.user.dto.RoleDto;
+import com.emond.mall.provider.user.dto.UserDto;
 import com.google.common.collect.Sets;
 
 
-import com.emond.mall.business.user.repository.UserRepository;
 import com.emond.mall.provider.user.domain.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @SpringBootTest
@@ -23,8 +26,13 @@ public class UserServiceTest {
     @Autowired
     private RoleService roleService;
     @Test
-    public void findByUsernameOrEmailException(){
-
+    public void findByUsernameOrEmail(){
+        UserDto user = userService.findByUsernameOrEmail("admin", "admin");
+        Set<RoleDto> roles = user.getRoles();
+        for (RoleDto role : roles) {
+            System.out.println(role.getName());
+        }
+        assertEquals("admin",user.getName());
     }
 
     @Test
