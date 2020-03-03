@@ -1,8 +1,8 @@
 package com.emond.mall.provider.user.rpc;
 
-import com.emond.mall.provider.user.dto.UserDto;
+import com.emond.mall.provider.user.dto.UserDTO;
 
 public interface UserQueryRpc {
 
-    UserDto loadUserByUsername(String usernameOrEmail);
+    UserDTO loadUserByUsername(String usernameOrEmail);
 }

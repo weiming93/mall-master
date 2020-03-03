@@ -6,7 +6,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8848
+        server-addr: ${nacos.url}:8848
     sentinel:
       filter:
         enabled: false
@@ -34,6 +34,7 @@ spring:
           predicates:
             - Path=/user/**
           filters:
+
 #            - name: CircuitBreaker
 #              args:
 #                name: authCircuitBreaker
@@ -45,7 +46,7 @@ spring:
   boot:
     admin:
       client:
-        url: http://localhost:9200
+        url: ${monitor.url}:9200
         username: monitor
         password: 123456
 

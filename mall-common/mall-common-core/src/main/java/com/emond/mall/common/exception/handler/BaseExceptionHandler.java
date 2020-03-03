@@ -26,7 +26,7 @@ public class BaseExceptionHandler {
      */
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public String exceptionRest(Exception e){
+    public String exceptionRest(Throwable e){
         // 打印堆栈信息
         log.error(ThrowableUtils.stackTraceToString(e));
         return "服务器异常";

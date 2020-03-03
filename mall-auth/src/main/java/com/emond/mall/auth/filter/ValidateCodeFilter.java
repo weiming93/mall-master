@@ -2,8 +2,13 @@ package com.emond.mall.auth.filter;
 
 import com.emond.mall.auth.exception.ValidateCodeException;
 import com.emond.mall.auth.service.ValidateCodeService;
+import com.emond.mall.common.ThrowableUtils;
+import com.emond.mall.common.constant.AuthConstant;
+import com.emond.mall.common.constant.EndpointConstant;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,7 +23,11 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
@@ -27,6 +36,7 @@ import java.util.Base64;
  * @author: Emond Chan
  */
 @Component
+@Slf4j
 public class ValidateCodeFilter extends OncePerRequestFilter {
 
     @Autowired
@@ -34,15 +44,17 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        RequestMatcher matcher = new AntPathRequestMatcher("/oauth/token", HttpMethod.POST.toString());
+        String header = request.getHeader(HttpHeaders.AUTHORIZATION);
+        String clientId = getClientId(header, request);
+        RequestMatcher matcher = new AntPathRequestMatcher(EndpointConstant.OAUTH_TOKEN, HttpMethod.POST.toString());
         if (matcher.matches(request)
-                && StringUtils.equalsIgnoreCase(request.getParameter("grant_type"), "password")
-                && !StringUtils.equalsAnyIgnoreCase(authentication.getName(), "swagger")) {
+                && StringUtils.equalsIgnoreCase(request.getParameter(AuthConstant.GRANT_TYPE), AuthConstant.PASSWORD)
+                && !StringUtils.equalsAnyIgnoreCase(clientId, "swagger")) {
             try {
                 validateCode(request);
                 filterChain.doFilter(request, response);
             } catch (ValidateCodeException e) {
+                log.error(ThrowableUtils.stackTraceToString(e));
                 response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
                 response.setStatus(HttpStatus.BAD_REQUEST.value());
                 response.getWriter().write(e.getMessage());
@@ -52,12 +64,25 @@ public class ValidateCodeFilter extends OncePerRequestFilter {
         }
 
     }
-
-
-
     private void validateCode(HttpServletRequest httpServletRequest) throws ValidateCodeException {
-        String code = httpServletRequest.getParameter("code");
-        String key = httpServletRequest.getParameter("key");
+        String code = httpServletRequest.getParameter(AuthConstant.VALIDATE_CODE_CODE);
+        String key = httpServletRequest.getParameter(AuthConstant.VALIDATE_CODE_KEY);
         validateCodeService.check(key, code);
+    }
+
+    private String getClientId(String header, HttpServletRequest request) {
+        String clientId = "";
+        try {
+            byte[] base64Token = header.substring(6).getBytes(StandardCharsets.UTF_8);
+            byte[] decoded;
+            decoded = Base64.getDecoder().decode(base64Token);
+            String token = new String(decoded, StandardCharsets.UTF_8);
+            int delim = token.indexOf(":");
+            if (delim != -1) {
+                clientId = new String[]{token.substring(0, delim), token.substring(delim + 1)}[0];
+            }
+        } catch (Exception ignore) {
+        }
+        return clientId;
     }
 }

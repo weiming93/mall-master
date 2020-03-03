@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface BaseMapper <S, T> {
 
-    T toDto(S source);
+    T toDTO(S source);
 
-    List<T> toDto(Collection<S> sources);
+    List<T> toDTO(Collection<S> sources);
 
     S toEntity(T target);
 

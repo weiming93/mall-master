@@ -7,6 +7,8 @@ import com.emond.mall.auth.translator.AuthWebResponseExceptionTranslator;
 import com.emond.mall.common.MallStringUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -17,10 +19,14 @@ import org.springframework.security.oauth2.config.annotation.configurers.ClientD
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.ClientDetailsService;
+import org.springframework.security.oauth2.provider.client.JdbcClientDetailsService;
 import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
+import javax.sql.DataSource;
 import java.util.UUID;
 
 /**
@@ -37,33 +43,24 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     private RedisConnectionFactory redisConnectionFactory;
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private AuthProperties authProperties;
 
     @Autowired
     private AuthWebResponseExceptionTranslator authWebResponseExceptionTranslator;
 
+
+    @Autowired
+    private DataSource dataSource;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Bean
+    public ClientDetailsService jdbcClientDetailsService() {
+        // 基于 JDBC 实现，需要事先在数据库配置客户端信息
+        return new JdbcClientDetailsService(dataSource);
+    }
+
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        ClientsProperties[] clientsProperties = authProperties.getClients();
-        for (ClientsProperties clientsProperty : clientsProperties) {
-            if (StringUtils.isBlank(clientsProperty.getClient())){
-                throw new Exception("client不能为空");
-            }
-            if (StringUtils.isBlank(clientsProperty.getSecret())) {
-                throw new Exception("secret不能为空");
-            }
-            String[] grantTypes  = StringUtils.splitByWholeSeparator(clientsProperty.getGrantType(), ",");
-            clients.inMemory()
-                    .withClient(clientsProperty.getClient())
-                    .secret(passwordEncoder.encode(clientsProperty.getSecret()))
-                    .authorizedGrantTypes(grantTypes)
-                    .scopes(clientsProperty.getScope());
-        }
-
+        clients.withClientDetails(jdbcClientDetailsService());
     }
 
     @Override
@@ -71,26 +68,27 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
         endpoints.tokenStore(tokenStore())
                 .userDetailsService(customUserDetailsService)
                 .authenticationManager(authenticationManager)
-                .tokenServices(defaultTokenServices())
                 .exceptionTranslator(authWebResponseExceptionTranslator);
     }
 
     @Bean
     public TokenStore tokenStore() {
+        // 令牌保存到redis
         RedisTokenStore redisTokenStore = new RedisTokenStore(redisConnectionFactory);
         // 解决每次生成的 token都一样的问题
         redisTokenStore.setAuthenticationKeyGenerator(oAuth2Authentication -> UUID.randomUUID().toString());
         return redisTokenStore;
     }
+//    @Primary
+//    @Bean
+//    public DefaultTokenServices defaultTokenServices() {
+//        DefaultTokenServices tokenServices = new DefaultTokenServices();
+//        tokenServices.setTokenStore(tokenStore());
+//        tokenServices.setSupportRefreshToken(true);
+//        tokenServices.setAccessTokenValiditySeconds(60 * 60 * 24);
+//        tokenServices.setRefreshTokenValiditySeconds(60 * 60 * 24 * 7);
+//        return tokenServices;
+//    }
 
-    @Primary
-    @Bean
-    public DefaultTokenServices defaultTokenServices() {
-        DefaultTokenServices tokenServices = new DefaultTokenServices();
-        tokenServices.setTokenStore(tokenStore());
-        tokenServices.setSupportRefreshToken(true);
-        tokenServices.setAccessTokenValiditySeconds(authProperties.getAccessTokenValiditySeconds());
-        tokenServices.setRefreshTokenValiditySeconds(authProperties.getRefreshTokenValiditySeconds());
-        return tokenServices;
-    }
+
 }

@@ -3,6 +3,7 @@ package com.emond.mall.auth.service;
 import com.emond.mall.auth.exception.ValidateCodeException;
 import com.emond.mall.auth.properties.AuthProperties;
 import com.emond.mall.auth.properties.ValidateCodeProperties;
+import com.emond.mall.common.constant.AuthConstant;
 import com.emond.mall.common.constant.MallConstant;
 import com.emond.mall.common.service.RedisService;
 import com.wf.captcha.GifCaptcha;
@@ -37,7 +38,7 @@ public class ValidateCodeService {
      * @param response HttpServletResponse
      */
     public void create(HttpServletRequest request, HttpServletResponse response) throws IOException, ValidateCodeException {
-        String key = request.getParameter("key");
+        String key = request.getParameter(AuthConstant.VALIDATE_CODE_KEY);
         if (StringUtils.isBlank(key)) {
             throw new ValidateCodeException("验证码key不能为空");
         }
@@ -45,7 +46,7 @@ public class ValidateCodeService {
         setHeader(response, code.getType());
 
         Captcha captcha = createCaptcha(code);
-        redisService.set(MallConstant.CODE_PREFIX + key, StringUtils.lowerCase(captcha.text()), code.getTime());
+        redisService.set(AuthConstant.CODE_PREFIX + key, StringUtils.lowerCase(captcha.text()), code.getTime());
         captcha.out(response.getOutputStream());
     }
 
@@ -56,7 +57,7 @@ public class ValidateCodeService {
      * @param value 前端上送待校验值
      */
     public void check(String key, String value) throws ValidateCodeException {
-        Object codeInRedis = redisService.get(MallConstant.CODE_PREFIX + key);
+        Object codeInRedis = redisService.get(AuthConstant.CODE_PREFIX + key);
         if (StringUtils.isBlank(value)) {
             throw new ValidateCodeException("请输入验证码");
         }

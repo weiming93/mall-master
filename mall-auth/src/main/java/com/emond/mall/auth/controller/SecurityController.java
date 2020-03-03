@@ -2,11 +2,11 @@ package com.emond.mall.auth.controller;
 
 import com.emond.mall.auth.exception.ValidateCodeException;
 import com.emond.mall.auth.service.ValidateCodeService;
+import com.emond.mall.provider.user.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.oauth2.provider.token.ConsumerTokenServices;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,7 +34,6 @@ public class SecurityController {
     public Principal currentUser(Principal principal) {
         return principal;
     }
-
 
     @DeleteMapping("signout")
     public String signout(HttpServletRequest request) throws Exception {

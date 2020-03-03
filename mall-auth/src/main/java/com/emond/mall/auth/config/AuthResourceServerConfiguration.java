@@ -11,6 +11,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.access.AccessDeniedHandler;
 
 /**
  * @description: WebSecurity资源配置类
@@ -21,10 +23,10 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 public class AuthResourceServerConfiguration extends ResourceServerConfigurerAdapter {
 
     @Autowired
-    private MallAccessDeniedHandler accessDeniedHandler;
+    private AccessDeniedHandler accessDeniedHandler;
 
     @Autowired
-    private MallAuthenticationEntryPoint authenticationEntryPoint;
+    private AuthenticationEntryPoint authenticationEntryPoint;
 
     @Autowired
     private AuthProperties properties;

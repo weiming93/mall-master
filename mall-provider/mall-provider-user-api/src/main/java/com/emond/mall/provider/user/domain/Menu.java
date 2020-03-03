@@ -2,13 +2,12 @@ package com.emond.mall.provider.user.domain;
 
 import com.emond.mall.common.domain.IdentityModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
@@ -22,15 +21,16 @@ public class Menu extends IdentityModel {
 
     @Column(unique = true)
     private Long sort = 999L;
-
+    //对应路由path
     @Column(name = "path")
     private String path;
-
+    //对应路由组件component
     private String component;
 
     // 类型
+    @Enumerated(EnumType.STRING)
     @Column(name = "type")
-    private Integer type;
+    private MenuType type;
 
     // 权限
     @Column(name = "permission")
@@ -38,14 +38,8 @@ public class Menu extends IdentityModel {
 
     @Column(unique = true,name = "component_name")
     private String componentName;
-
+    //图标
     private String icon;
-
-    @Column(columnDefinition = "bit(1) default 0")
-    private Boolean cache;
-
-    @Column(columnDefinition = "bit(1) default 0")
-    private Boolean hidden;
 
     // 上级菜单ID
     @Column(name = "pid",nullable = false)
@@ -54,6 +48,12 @@ public class Menu extends IdentityModel {
     // 是否为外链 true/false
     @Column(name = "i_frame")
     private Boolean iFrame;
+
+    @Column(columnDefinition = "bit(1) default 0")
+    private Boolean cache;
+
+    @Column(columnDefinition = "bit(1) default 0")
+    private Boolean hidden;
 
     @ManyToMany(mappedBy = "menus")
     @JsonIgnore

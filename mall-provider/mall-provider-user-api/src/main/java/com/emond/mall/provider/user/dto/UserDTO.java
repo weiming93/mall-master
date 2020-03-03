@@ -12,7 +12,7 @@ import java.util.Set;
  * @author: Emond Chan
  */
 @Data
-public class UserDto implements Serializable {
+public class UserDTO implements Serializable {
     private Long id;
 
     private String name;
@@ -27,5 +27,5 @@ public class UserDto implements Serializable {
     @JsonIgnore
     private String password;
 
-    private Set<RoleDto> roles = new HashSet<>();
+    private Set<RoleDTO> roles = new HashSet<>();
 }

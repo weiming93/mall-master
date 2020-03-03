@@ -1,8 +1,8 @@
 package com.emond.mall.business.user.service;
 
 import com.emond.mall.provider.user.domain.Role;
-import com.emond.mall.provider.user.dto.RoleDto;
-import com.emond.mall.provider.user.dto.UserDto;
+import com.emond.mall.provider.user.dto.RoleDTO;
+import com.emond.mall.provider.user.dto.UserDTO;
 import com.google.common.collect.Sets;
 
 
@@ -10,7 +10,6 @@ import com.emond.mall.provider.user.domain.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Set;
 
@@ -27,9 +26,9 @@ public class UserServiceTest {
     private RoleService roleService;
     @Test
     public void findByUsernameOrEmail(){
-        UserDto user = userService.findByUsernameOrEmail("admin", "admin");
-        Set<RoleDto> roles = user.getRoles();
-        for (RoleDto role : roles) {
+        UserDTO user = userService.findByUsernameOrEmail("admin", "admin");
+        Set<RoleDTO> roles = user.getRoles();
+        for (RoleDTO role : roles) {
             System.out.println(role.getName());
         }
         assertEquals("admin",user.getName());

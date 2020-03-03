@@ -9,20 +9,8 @@ spring:
         server-addr: 127.0.0.1:8848
   main:
     allow-bean-definition-overriding: true
-  redis:
-    database: 0
-    host: 127.0.0.1
-    port: 6379
-    lettuce:
-      pool:
-        min-idle: 8
-        max-idle: 500
-        max-active: 2000
-        max-wait: 10000
-    timeout: 5000
+
 
 server:
   port: 9010
-
-
 

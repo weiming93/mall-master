@@ -7,7 +7,7 @@ import lombok.Data;
  * @author: Emond Chan
  */
 @Data
-public class RoleDto {
+public class RoleDTO {
 
     private Long id;
 

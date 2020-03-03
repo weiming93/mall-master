@@ -21,7 +21,6 @@ import java.util.Collections;
  * @description:
  * @author: Emond Chan
  */
-@Configuration
 @EnableSwagger2
 public class SwaggerConfiguration {
 

@@ -6,13 +6,20 @@ import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.cloud.gateway.route.Route;
 import org.springframework.cloud.gateway.support.ServerWebExchangeUtils;
 import org.springframework.core.Ordered;
+import org.springframework.core.io.buffer.DataBuffer;
+import org.springframework.core.io.buffer.DataBufferUtils;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.net.URI;
+import java.nio.CharBuffer;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
+import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @description:
@@ -30,8 +37,11 @@ public class GatewayRequestFilter implements GlobalFilter, Ordered {
                 Mono.fromRunnable(() ->{
                     Long startTime = exchange.getAttribute(REQUEST_TIME_BEGIN);
                     if (startTime != null){
-                        log.info("请求服务：{}，请求路径：{}，消耗时间：{}ms"
-                        ,route.getUri().getHost(),exchange.getRequest().getPath(),(System.currentTimeMillis() - startTime));
+                        log.info("请求服务：{}，请求路径：{}，请求数据：{}，消耗时间：{}ms"
+                                ,route.getUri().getHost()
+                                ,exchange.getRequest().getPath()
+                                ,exchange.getRequest().getQueryParams()
+                                ,(System.currentTimeMillis() - startTime));
                     }
                 })
         );
@@ -41,4 +51,6 @@ public class GatewayRequestFilter implements GlobalFilter, Ordered {
     public int getOrder() {
         return 0;
     }
+
+
 }

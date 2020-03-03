@@ -27,9 +27,20 @@ spring:
   boot:
     admin:
       client:
-        url: http://localhost:9200
+        url: 127.0.0.1:9200
         username: monitor
         password: 123456
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        min-idle: 8
+        max-idle: 500
+        max-active: 2000
+        max-wait: 10000
+    timeout: 5000
 info:
   app:
     name: ${spring.application.name}

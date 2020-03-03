@@ -6,15 +6,16 @@ import com.emond.mall.business.user.service.UserService;
 import com.emond.mall.common.exception.EntityExistException;
 import com.emond.mall.common.exception.ResourceNotFoundException;
 import com.emond.mall.provider.user.domain.User;
-import com.emond.mall.provider.user.dto.UserDto;
+import com.emond.mall.provider.user.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
-@Transactional(readOnly = true, rollbackFor = Exception.class)
+@Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -27,10 +28,10 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public UserDto findByUsernameOrEmail(String username, String email) {
+    public UserDTO findByUsernameOrEmail(String username, String email) {
         User user = userRepository.findByUsernameOrEmail(username, email)
                 .orElseThrow(() -> new ResourceNotFoundException("账号", "username", username));
-        return  userMapper.toDto(user);
+        return  userMapper.toDTO(user);
     }
 
     @Override
@@ -45,5 +46,17 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode("123456"));
 
         return userRepository.save(user);
+    }
+
+    @Override
+    public void delete(Long id) {
+        userRepository.deleteById(id);
+    }
+
+    @Override
+    public UserDTO findById(Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("用户", "ID", id));
+        return userMapper.toDTO(user);
     }
 }
