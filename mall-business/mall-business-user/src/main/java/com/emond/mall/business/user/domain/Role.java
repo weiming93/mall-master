@@ -1,4 +1,4 @@
-package com.emond.mall.provider.user.domain;
+package com.emond.mall.business.user.domain;
 
 import com.emond.mall.common.domain.IdentityModel;
 import com.fasterxml.jackson.annotation.JsonIgnore;

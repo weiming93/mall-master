@@ -1,12 +1,12 @@
 package com.emond.mall.business.user.service;
 
-import com.emond.mall.provider.user.domain.Role;
+import com.emond.mall.business.user.domain.Role;
 import com.emond.mall.provider.user.dto.RoleDTO;
 import com.emond.mall.provider.user.dto.UserDTO;
 import com.google.common.collect.Sets;
 
 
-import com.emond.mall.provider.user.domain.User;
+import com.emond.mall.business.user.domain.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

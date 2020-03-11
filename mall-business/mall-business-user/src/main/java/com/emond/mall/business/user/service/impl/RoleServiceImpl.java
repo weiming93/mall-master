@@ -5,7 +5,7 @@ import com.emond.mall.business.user.repository.RoleRepository;
 import com.emond.mall.business.user.service.RoleService;
 import com.emond.mall.common.exception.EntityExistException;
 import com.emond.mall.common.exception.ResourceNotFoundException;
-import com.emond.mall.provider.user.domain.Role;
+import com.emond.mall.business.user.domain.Role;
 import com.emond.mall.provider.user.dto.RoleDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Set;
 
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)

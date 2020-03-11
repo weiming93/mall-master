@@ -1,7 +1,7 @@
 package com.emond.mall.business.user.mapper;
 
 import com.emond.mall.common.mapper.BaseMapper;
-import com.emond.mall.provider.user.domain.Role;
+import com.emond.mall.business.user.domain.Role;
 import com.emond.mall.provider.user.dto.RoleDTO;
 import org.mapstruct.Mapper;
 

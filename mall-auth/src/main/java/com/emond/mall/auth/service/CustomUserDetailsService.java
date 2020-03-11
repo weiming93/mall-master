@@ -1,10 +1,10 @@
 package com.emond.mall.auth.service;
 
 
+import com.emond.mall.auth.domain.User;
 import com.emond.mall.auth.mapper.UserPrincipalMapper;
 import com.emond.mall.auth.repository.UserRepository;
 import com.emond.mall.common.exception.ResourceNotFoundException;
-import com.emond.mall.provider.user.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

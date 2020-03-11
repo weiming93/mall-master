@@ -1,6 +1,6 @@
 package com.emond.mall.business.user.service;
 
-import com.emond.mall.provider.user.domain.Menu;
+import com.emond.mall.business.user.domain.Menu;
 import com.emond.mall.provider.user.dto.MenuDTO;
 import com.emond.mall.provider.user.dto.RoleDTO;
 import com.emond.mall.provider.user.vo.MenuVo;

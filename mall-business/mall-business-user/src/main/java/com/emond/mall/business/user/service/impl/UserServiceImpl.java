@@ -5,7 +5,7 @@ import com.emond.mall.business.user.repository.UserRepository;
 import com.emond.mall.business.user.service.UserService;
 import com.emond.mall.common.exception.EntityExistException;
 import com.emond.mall.common.exception.ResourceNotFoundException;
-import com.emond.mall.provider.user.domain.User;
+import com.emond.mall.business.user.domain.User;
 import com.emond.mall.provider.user.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;

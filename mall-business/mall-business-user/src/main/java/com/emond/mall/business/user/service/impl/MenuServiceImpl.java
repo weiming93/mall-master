@@ -5,17 +5,15 @@ import com.emond.mall.business.user.repository.MenuRepository;
 import com.emond.mall.business.user.service.MenuService;
 import com.emond.mall.common.exception.EntityExistException;
 import com.emond.mall.common.exception.ResourceNotFoundException;
-import com.emond.mall.provider.user.domain.Menu;
-import com.emond.mall.provider.user.domain.MenuType;
+import com.emond.mall.business.user.domain.Menu;
+import com.emond.mall.provider.user.enums.MenuType;
 import com.emond.mall.provider.user.dto.MenuDTO;
 import com.emond.mall.provider.user.dto.RoleDTO;
 import com.emond.mall.provider.user.vo.MenuMetaVo;
 import com.emond.mall.provider.user.vo.MenuVo;
-import io.netty.util.internal.ObjectUtil;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -112,7 +110,7 @@ public class MenuServiceImpl implements MenuService {
                         MenuVo menuVo = new MenuVo();
                         menuVo.setName(StringUtils.isNotBlank(menuDTO.getComponentName())  ? menuDTO.getComponentName() : menuDTO.getName());
                         // 一级目录需要加斜杠，不然会报警告
-                        menuVo.setPath(menuDTO.getPid() == 0 ? File.separator + menuDTO.getPath() :menuDTO.getPath());
+                        menuVo.setPath(menuDTO.getPid() == 0 ?  "/"+menuDTO.getPath() :menuDTO.getPath());
                         menuVo.setHidden(menuDTO.getHidden());
                         // 如果不是外链
                         if(!menuDTO.getIFrame()){

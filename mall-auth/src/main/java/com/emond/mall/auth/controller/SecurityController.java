@@ -2,9 +2,7 @@ package com.emond.mall.auth.controller;
 
 import com.emond.mall.auth.exception.ValidateCodeException;
 import com.emond.mall.auth.service.ValidateCodeService;
-import com.emond.mall.provider.user.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.oauth2.provider.token.ConsumerTokenServices;
 import org.springframework.web.bind.annotation.*;
 

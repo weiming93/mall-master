@@ -1,7 +1,7 @@
 package com.emond.mall.auth.mapper;
 
+import com.emond.mall.auth.domain.User;
 import com.emond.mall.common.domain.UserPrincipal;
-import com.emond.mall.provider.user.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 

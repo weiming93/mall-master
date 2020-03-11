@@ -1,6 +1,6 @@
 package com.emond.mall.business.user.repository;
 
-import com.emond.mall.provider.user.domain.User;
+import com.emond.mall.business.user.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 

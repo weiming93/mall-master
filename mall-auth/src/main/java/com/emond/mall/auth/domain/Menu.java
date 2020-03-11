@@ -1,8 +1,8 @@
-package com.emond.mall.provider.user.domain;
+package com.emond.mall.auth.domain;
 
 import com.emond.mall.common.domain.IdentityModel;
+import com.emond.mall.provider.user.enums.MenuType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;

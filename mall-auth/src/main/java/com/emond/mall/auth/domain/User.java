@@ -1,8 +1,8 @@
-package com.emond.mall.provider.user.domain;
+package com.emond.mall.auth.domain;
 
+import com.emond.mall.common.annotation.ValidEmail;
 import com.emond.mall.common.annotation.ValidMobile;
 import com.emond.mall.common.domain.IdentityModel;
-import com.emond.mall.common.annotation.ValidEmail;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;

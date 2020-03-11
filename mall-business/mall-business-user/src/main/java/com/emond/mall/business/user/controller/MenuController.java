@@ -6,7 +6,7 @@ import com.emond.mall.business.user.service.UserService;
 import com.emond.mall.common.domain.Create;
 import com.emond.mall.common.domain.Update;
 import com.emond.mall.common.utils.OAuth2Utils;
-import com.emond.mall.provider.user.domain.Menu;
+import com.emond.mall.business.user.domain.Menu;
 import com.emond.mall.provider.user.dto.MenuDTO;
 import com.emond.mall.provider.user.dto.UserDTO;
 import com.emond.mall.provider.user.vo.MenuVo;
@@ -14,7 +14,6 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 

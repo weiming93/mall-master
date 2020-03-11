@@ -1,4 +1,4 @@
-package com.emond.mall.provider.user.domain;
+package com.emond.mall.provider.user.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

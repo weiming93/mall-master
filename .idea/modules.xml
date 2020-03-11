@@ -17,8 +17,6 @@
       <module fileurl="file://$PROJECT_DIR$/mall-monitor/mall-monitor.iml" filepath="$PROJECT_DIR$/mall-monitor/mall-monitor.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-monitor/mall-monitor-admin/mall-monitor-admin.iml" filepath="$PROJECT_DIR$/mall-monitor/mall-monitor-admin/mall-monitor-admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-provider/mall-provider.iml" filepath="$PROJECT_DIR$/mall-provider/mall-provider.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mall-provider/mall-provider-generator/mall-provider-generator.iml" filepath="$PROJECT_DIR$/mall-provider/mall-provider-generator/mall-provider-generator.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mall-provider/mall-provider-goods/mall-provider-goods.iml" filepath="$PROJECT_DIR$/mall-provider/mall-provider-goods/mall-provider-goods.iml" />
       <module fileurl="file://$PROJECT_DIR$/mall-provider/mall-provider-user-api/mall-provider-user-api.iml" filepath="$PROJECT_DIR$/mall-provider/mall-provider-user-api/mall-provider-user-api.iml" />
     </modules>
   </component>

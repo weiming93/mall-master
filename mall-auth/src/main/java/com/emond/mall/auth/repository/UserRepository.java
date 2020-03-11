@@ -1,6 +1,6 @@
 package com.emond.mall.auth.repository;
 
-import com.emond.mall.provider.user.domain.User;
+import com.emond.mall.auth.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

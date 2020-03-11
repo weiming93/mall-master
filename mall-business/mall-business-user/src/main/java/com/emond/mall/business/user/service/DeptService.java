@@ -1,6 +1,6 @@
 package com.emond.mall.business.user.service;
 
-import com.emond.mall.provider.user.domain.Dept;
+import com.emond.mall.business.user.domain.Dept;
 
 public interface DeptService {
 
