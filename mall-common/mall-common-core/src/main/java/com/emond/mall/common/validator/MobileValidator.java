@@ -1,7 +1,7 @@
 package com.emond.mall.common.validator;
 
-import com.emond.mall.common.RegexpUtils;
 import com.emond.mall.common.annotation.ValidMobile;
+import com.emond.mall.common.utils.RegexpUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.validation.ConstraintValidator;
@@ -9,7 +9,7 @@ import javax.validation.ConstraintValidatorContext;
 
 /**
  * @description:
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 public class MobileValidator implements ConstraintValidator<ValidMobile, String> {
     @Override

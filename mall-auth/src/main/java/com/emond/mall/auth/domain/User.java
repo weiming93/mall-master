@@ -3,7 +3,6 @@ package com.emond.mall.auth.domain;
 import com.emond.mall.common.annotation.ValidEmail;
 import com.emond.mall.common.annotation.ValidMobile;
 import com.emond.mall.common.domain.IdentityModel;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.NaturalId;
@@ -17,7 +16,6 @@ import java.util.Set;
 
 @Setter
 @Getter
-@EqualsAndHashCode(of = "id")
 @Entity
 @Table( uniqueConstraints = {
         @UniqueConstraint(columnNames = {
@@ -28,9 +26,6 @@ import java.util.Set;
         })
 })
 public class User extends IdentityModel {
-
-    @NotBlank(message = "{required}")
-    private String name;
 
     @NotBlank
     @Size(min = 4, max = 20, message = "{range}")

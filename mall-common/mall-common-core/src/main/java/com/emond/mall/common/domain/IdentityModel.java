@@ -15,8 +15,8 @@ import javax.validation.constraints.Null;
 public abstract class IdentityModel extends DateAudit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotNull(groups = Update.class)
-    @Null(groups = Create.class)
+    @NotNull(groups = Update.class, message = "{required}")
+    @Null(groups = Create.class, message = "不为空")
     private Long id;
 
 }

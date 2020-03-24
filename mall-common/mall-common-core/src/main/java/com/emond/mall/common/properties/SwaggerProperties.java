@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * @description:
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Data
 public class SwaggerProperties {

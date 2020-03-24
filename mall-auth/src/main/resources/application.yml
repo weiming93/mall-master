@@ -12,5 +12,5 @@ spring:
 
 
 server:
-  port: 9010
+  port: 9520
 

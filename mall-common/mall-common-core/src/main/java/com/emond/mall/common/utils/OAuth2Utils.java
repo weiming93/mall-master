@@ -1,16 +1,12 @@
 package com.emond.mall.common.utils;
 
 import com.emond.mall.common.domain.CurrentUser;
-import com.emond.mall.common.domain.UserPrincipal;
-import com.emond.mall.common.exception.ResourceNotFoundException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.oauth2.common.exceptions.OAuth2Exception;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationDetails;
 
@@ -19,7 +15,7 @@ import java.util.LinkedHashMap;
 
 /**
  * @description: TODO
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Slf4j
 @UtilityClass

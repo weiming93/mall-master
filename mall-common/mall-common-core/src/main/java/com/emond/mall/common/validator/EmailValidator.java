@@ -1,7 +1,7 @@
 package com.emond.mall.common.validator;
 
 
-import com.emond.mall.common.RegexpUtils;
+import com.emond.mall.common.utils.RegexpUtils;
 import com.emond.mall.common.annotation.ValidEmail;
 import org.apache.commons.lang3.StringUtils;
 

@@ -8,7 +8,7 @@ import org.springframework.security.web.authentication.SavedRequestAwareAuthenti
 
 /**
  * @description: Web Security配置类
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @EnableWebSecurity
 public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter {

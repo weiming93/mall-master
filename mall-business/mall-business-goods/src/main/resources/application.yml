@@ -8,7 +8,7 @@ spring:
       discovery:
         server-addr: 127.0.0.1:8848
 server:
-  port: 9010
+  port: 9610
 
 
 
@@ -16,4 +16,4 @@ security:
   oauth2:
     resource:
       id: ${spring.application.name}
-      user-info-uri: http://localhost:8090/auth/user
+      user-info-uri: http://127.0.0.1:9500/auth/user

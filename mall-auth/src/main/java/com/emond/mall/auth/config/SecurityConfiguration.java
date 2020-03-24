@@ -5,7 +5,6 @@ import com.emond.mall.auth.service.CustomUserDetailsService;
 import com.emond.mall.common.constant.EndpointConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -19,7 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 /**
  * @description: WebSecurity配置类
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Order(2)//使优先级高于com.emond.mall.auth.config.ResourceServerConfigure
 @EnableWebSecurity

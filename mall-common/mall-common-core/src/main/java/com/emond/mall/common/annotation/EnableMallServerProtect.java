@@ -7,7 +7,7 @@ import java.lang.annotation.*;
 
 /**
  * @description: 开启微服务防护，避免客户端绕过网关直接请求微服务
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

@@ -10,7 +10,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 
 /**
  * @description:
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 public class AuthExceptionConfiguration {
     @Bean

@@ -13,7 +13,7 @@ import java.security.Principal;
 
 /**
  * @description:
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @RestController
 public class SecurityController {

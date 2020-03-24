@@ -12,7 +12,7 @@ import java.time.Duration;
 
 /**
  * @description:
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Configuration
 public class Resilience4JConfiguration {

@@ -2,7 +2,7 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mall?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=true
+    url: jdbc:mysql://localhost:3306/mall?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=true
     username: root
     password: 123456
     hikari:
@@ -21,7 +21,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
 
   jackson:
-    time-zone: UTC
+    time-zone: GMT+8
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false #禁用序列化Java 8 Data / Time值作为时间戳
   boot:
@@ -54,3 +54,17 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+  compression:
+    request:
+      enabled: true
+      min-request-size: 2048
+
+

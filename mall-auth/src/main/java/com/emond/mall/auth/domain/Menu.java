@@ -1,9 +1,8 @@
 package com.emond.mall.auth.domain;
 
 import com.emond.mall.common.domain.IdentityModel;
-import com.emond.mall.provider.user.enums.MenuType;
+import com.emond.mall.provider.system.enums.MenuType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,7 +12,6 @@ import java.util.Set;
 
 @Setter
 @Getter
-@EqualsAndHashCode(of = "id")
 @Entity
 public class Menu extends IdentityModel {
     @NotBlank
@@ -55,7 +53,7 @@ public class Menu extends IdentityModel {
     @Column(columnDefinition = "bit(1) default 0")
     private Boolean hidden;
 
-    @ManyToMany(mappedBy = "menus")
     @JsonIgnore
+    @ManyToMany(mappedBy = "menus")
     private Set<Role> roles;
 }

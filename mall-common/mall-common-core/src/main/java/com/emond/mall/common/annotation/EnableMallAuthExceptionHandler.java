@@ -7,7 +7,7 @@ import java.lang.annotation.*;
 
 /**
  * @description: 认证类型异常翻译
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

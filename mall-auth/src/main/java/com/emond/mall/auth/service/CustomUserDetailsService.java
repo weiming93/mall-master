@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @description:
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Service
 @Transactional(readOnly = true, rollbackFor = Exception.class)
@@ -23,10 +23,11 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+
     @Override
-    public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {
-        User user = userRepository.findByUsernameOrEmail(usernameOrEmail, usernameOrEmail)
-                .orElseThrow(() -> new ResourceNotFoundException("账号", "username", usernameOrEmail));
+    public UserDetails loadUserByUsername(String usernameOrEmailOrPhone) throws UsernameNotFoundException {
+        User user = userRepository.findByUsernameOrEmailOrPhone(usernameOrEmailOrPhone, usernameOrEmailOrPhone, usernameOrEmailOrPhone)
+                .orElseThrow(() -> new ResourceNotFoundException("账号", usernameOrEmailOrPhone));
         return UserPrincipalMapper.create(user);
     }
 }

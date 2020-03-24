@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @description:
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 public class RedisService {
 

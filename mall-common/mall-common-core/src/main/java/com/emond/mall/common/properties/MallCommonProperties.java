@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 
 /**
  * @description:
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Data
 @SpringBootConfiguration

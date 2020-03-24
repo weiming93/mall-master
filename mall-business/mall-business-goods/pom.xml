@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.emond.mall</groupId>
-            <artifactId>mall-provider-goods</artifactId>
+            <artifactId>mall-provider-goods-api</artifactId>
         </dependency>
     </dependencies>
 </project>

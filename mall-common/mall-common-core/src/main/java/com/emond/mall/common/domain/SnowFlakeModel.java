@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 public abstract class SnowFlakeModel extends DateAudit {
     @Id
     @GeneratedValue(generator = "idWorker")
-    @GenericGenerator(name = "idWorker",strategy = "com.blueocean.mall.common.generated.SnowFlakeIdGenerator")
+    @GenericGenerator(name = "idWorker",strategy = "com.emond.mall.common.auditing.SnowFlakeIdGenerator")
     @NotNull(groups = Update.class)
     private Long id;
 }

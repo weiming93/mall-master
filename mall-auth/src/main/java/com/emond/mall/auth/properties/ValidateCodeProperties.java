@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * @description: 验证码配置类
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Data
 public class ValidateCodeProperties {

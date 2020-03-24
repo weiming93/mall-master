@@ -1,12 +1,12 @@
 server:
-  port: 9000
+  port: 9500
 spring:
   application:
     name: mall-gateway
   cloud:
     nacos:
       discovery:
-        server-addr: ${nacos.url}:8848
+        server-addr: 127.0.0.1:8848
     sentinel:
       filter:
         enabled: false
@@ -29,16 +29,22 @@ spring:
 #                name: authCircuitBreaker
 #                fallbackUri: forward:/fallback/mall-auth
         # 用户服务
-        - id: mall-business-user
-          uri: lb://mall-business-user
+        - id: mall-business-system
+          uri: lb://mall-business-system
           predicates:
-            - Path=/user/**
+            - Path=/system/**
           filters:
 
 #            - name: CircuitBreaker
 #              args:
 #                name: authCircuitBreaker
 #                fallbackUri: forward:/fallback/mall-business-user
+        # 商品服务
+        - id: mall-business-goods
+          uri: lb://mall-business-goods
+          predicates:
+            - Path=/goods/**
+          filters:
       default-filters:
         - StripPrefix=1
   main:
@@ -46,7 +52,7 @@ spring:
   boot:
     admin:
       client:
-        url: ${monitor.url}:9200
+        url: 127.0.0.1:9510
         username: monitor
         password: 123456
 

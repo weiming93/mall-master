@@ -1,6 +1,5 @@
 package com.emond.mall.auth.translator;
 
-import com.emond.mall.common.ThrowableUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @description: 异常翻译器
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Component
 @Slf4j

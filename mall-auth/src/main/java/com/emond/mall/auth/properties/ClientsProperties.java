@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * @description: Client配置类
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Data
 public class ClientsProperties {

@@ -1,6 +1,7 @@
 package com.emond.mall.common.exception.handler;
 
-import com.emond.mall.common.ThrowableUtils;
+
+import com.emond.mall.common.utils.ThrowableUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,7 +15,7 @@ import java.io.IOException;
 
 /**
  * @description: 用户无权限
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Slf4j
 public class MallAccessDeniedHandler implements AccessDeniedHandler {

@@ -21,7 +21,7 @@ import java.io.IOException;
 
 /**
  * @description:
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Service
 public class ValidateCodeService {

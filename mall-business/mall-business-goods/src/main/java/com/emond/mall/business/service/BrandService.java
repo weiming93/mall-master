@@ -1,21 +1,21 @@
-//package com.emond.mall.business.service;
-//
-//import com.emond.mall.provider.domain.Brand;
-//import org.springframework.data.domain.Page;
-//import org.springframework.data.domain.Pageable;
-//
-//
-//public interface BrandService {
-//
-//    Flux<Brand> findAll();
-//
-//    Mono<Page<Brand>> findPage(Pageable pageable);
-//
-//    Mono<Brand> findById(Long id);
-//
-//    Mono<Brand> save(Brand brand);
-//
-//    Mono<Brand> update(Brand brand);
-//
-//    void deleteById(Long id);
-//}
+package com.emond.mall.business.service;
+
+import com.emond.mall.business.domain.Brand;
+import com.emond.mall.business.query.BrandQueryCriteria;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import java.util.Set;
+
+public interface BrandService {
+
+    Page<Brand> findPage(BrandQueryCriteria criteria, Pageable pageable);
+
+    Brand findById(Long id);
+
+    Brand create(Brand resource);
+
+    void update(Brand resource);
+
+    void delete(Set<Long> ids);
+}

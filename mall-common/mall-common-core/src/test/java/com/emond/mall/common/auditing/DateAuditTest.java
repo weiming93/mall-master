@@ -1,6 +1,6 @@
 package com.emond.mall.common.auditing;
 
-import com.emond.mall.common.DateUtils;
+import com.emond.mall.common.utils.DateUtils;
 import com.emond.mall.common.User;
 import com.emond.mall.common.repository.UserRepository;
 import org.junit.jupiter.api.Test;

@@ -2,7 +2,7 @@ package com.emond.mall.common.constant;
 
 /**
  * @description:
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 public class EndpointConstant {
     public static final String ALL = "/**";

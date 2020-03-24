@@ -2,8 +2,6 @@ package com.emond.mall.auth.config;
 
 import com.emond.mall.auth.properties.AuthProperties;
 import com.emond.mall.common.constant.EndpointConstant;
-import com.emond.mall.common.exception.handler.MallAccessDeniedHandler;
-import com.emond.mall.common.exception.handler.MallAuthenticationEntryPoint;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +14,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 
 /**
  * @description: WebSecurity资源配置类
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Configuration
 @EnableResourceServer

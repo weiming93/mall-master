@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * @description: 网关拦截器,避免客户端请求绕过网关，直接调用微服务
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 public class ServerProtectInterceptor implements HandlerInterceptor {
 

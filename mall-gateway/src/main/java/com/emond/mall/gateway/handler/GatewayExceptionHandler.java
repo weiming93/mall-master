@@ -18,7 +18,7 @@ import java.util.Map;
 
 /**
  * @description: 自定义异常处理逻辑
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Slf4j
 public class GatewayExceptionHandler extends DefaultErrorWebExceptionHandler {

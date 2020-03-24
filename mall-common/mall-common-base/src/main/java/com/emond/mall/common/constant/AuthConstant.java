@@ -2,7 +2,7 @@ package com.emond.mall.common.constant;
 
 /**
  * @description: 认证类型常量类
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 public class AuthConstant {
 

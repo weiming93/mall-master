@@ -1,5 +1,5 @@
 server:
-  port: 9200
+  port: 9510
 
 spring:
   application:
@@ -15,6 +15,6 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: ${nacos.url}:8848
+        server-addr: 127.0.0.1:8848
   main:
     allow-bean-definition-overriding: true

@@ -22,7 +22,6 @@
         <springdoc.version>1.2.21</springdoc.version>
         <jjwt.version>0.9.0</jjwt.version>
         <projections.version>2.0.0</projections.version>
-        <guava.version>28.2-jre</guava.version>
         <kryo.version>0.43</kryo.version>
         <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
         <captcha.version>1.6.2</captcha.version>
@@ -31,15 +30,12 @@
         <springfox.version>2.9.2</springfox.version>
         <spring-boot-admin.version>2.2.0-SNAPSHOT</spring-boot-admin.version>
         <jackson.version>2.10.3</jackson.version>
+        <hutool.version>5.2.3</hutool.version>
+        <minio.version>6.0.13</minio.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>com.emond.mall</groupId>
-                <artifactId>mall-provider-goods</artifactId>
-                <version>${project.version}</version>
-            </dependency>
 
             <dependency>
                 <groupId>com.emond.mall</groupId>
@@ -55,21 +51,25 @@
 
             <dependency>
                 <groupId>com.emond.mall</groupId>
-                <artifactId>mall-common-util</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.emond.mall</groupId>
                 <artifactId>mall-provider-generator</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
-
+            <dependency>
+                <groupId>com.emond.mall</groupId>
+                <artifactId>mall-provider-system-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.emond.mall</groupId>
-                <artifactId>mall-provider-user-api</artifactId>
+                <artifactId>mall-provider-goods-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.emond.mall</groupId>
+                <artifactId>mall-common-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -92,11 +92,6 @@
             </dependency>
 
 
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
             <!-- https://mvnrepository.com/artifact/de.javakaffee/kryo-serializers -->
             <dependency>
                 <groupId>de.javakaffee</groupId>
@@ -164,24 +159,19 @@
                 <artifactId>jackson-annotations</artifactId>
                 <version>${jackson.version}</version>
             </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
 
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>${minio.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 </project>

@@ -30,7 +30,7 @@ import java.util.Set;
 
 /**
  * @description:
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Configuration
 public class GatewayConfiguration {

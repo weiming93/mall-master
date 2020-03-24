@@ -16,7 +16,7 @@ import reactor.core.publisher.Mono;
 
 /**
  * @description:
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @Configuration
 public class GateWayCorsConfiguration {

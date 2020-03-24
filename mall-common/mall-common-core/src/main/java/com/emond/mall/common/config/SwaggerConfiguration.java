@@ -19,9 +19,10 @@ import java.util.Collections;
 
 /**
  * @description:
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 @EnableSwagger2
+@Configuration
 public class SwaggerConfiguration {
 
     @Autowired

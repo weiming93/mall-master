@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * @description:
- * @author: Emond Chan
+ * @author: Chen Weiming
  */
 public class ServerProtectConfiguration implements WebMvcConfigurer {
     @Bean
