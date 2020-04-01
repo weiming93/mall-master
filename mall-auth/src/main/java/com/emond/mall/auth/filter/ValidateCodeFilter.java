@@ -26,7 +26,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 /**
- * @description: 验证码过滤器
+ * 验证码过滤器
  * @author: Chen Weiming
  */
 @Component

@@ -15,7 +15,7 @@ import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
 
 /**
- * @description:
+ *    CROS配置
  * @author: Chen Weiming
  */
 @Configuration

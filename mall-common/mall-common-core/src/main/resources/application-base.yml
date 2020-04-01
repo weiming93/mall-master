@@ -24,12 +24,7 @@ spring:
     time-zone: GMT+8
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false #禁用序列化Java 8 Data / Time值作为时间戳
-  boot:
-    admin:
-      client:
-        url: 127.0.0.1:9200
-        username: monitor
-        password: 123456
+
   redis:
     database: 0
     host: 127.0.0.1
@@ -41,19 +36,10 @@ spring:
         max-active: 2000
         max-wait: 10000
     timeout: 5000
-info:
-  app:
-    name: ${spring.application.name}
-    description: "@project.description@"
-    version: "@project.version@"
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-  endpoint:
-    health:
-      show-details: ALWAYS
+  data:
+    redis:
+      repositories:
+        enabled: false
 
 feign:
   client:
@@ -62,7 +48,7 @@ feign:
         connectTimeout: 5000
         readTimeout: 5000
         loggerLevel: basic
-  compression:
+  compression: # 压缩策略
     request:
       enabled: true
       min-request-size: 2048

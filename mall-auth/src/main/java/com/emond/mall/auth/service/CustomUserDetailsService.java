@@ -14,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 /**
- * @description:
  * @author: Chen Weiming
  */
 @Service

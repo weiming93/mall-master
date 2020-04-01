@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @description: 令牌不正确返回401
+ * 令牌不正确返回401
  * @author: Chen Weiming
  */
 @Slf4j

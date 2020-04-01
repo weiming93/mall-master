@@ -11,7 +11,7 @@ import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
 /**
- * @description: 添加header信息 MallConstant.GATEWAY_TOKEN_HEADER
+ * 添加header信息 MallConstant.GATEWAY_TOKEN_HEADER
  * @author: Chen Weiming
  */
 @Slf4j

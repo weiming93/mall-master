@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 /**
- * @description:    异常工具类
+ *    异常工具类
  * @author: Chen Weiming
  */
 @UtilityClass

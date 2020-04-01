@@ -1,7 +1,6 @@
 package com.emond.mall.common.constant;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
 public class EndpointConstant {

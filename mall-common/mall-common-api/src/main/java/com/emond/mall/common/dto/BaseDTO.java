@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.time.Instant;
 
 /**
- * @description:  DTO公共类
+ *  DTO公共类
  * @author: Chen Weiming
  */
 @Data

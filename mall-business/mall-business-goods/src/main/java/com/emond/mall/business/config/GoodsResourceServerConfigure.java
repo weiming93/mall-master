@@ -14,7 +14,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 
 
 /**
- * @description: 资源配置
+ * 资源配置
  * @author: Chen Weiming
  */
 @Configuration

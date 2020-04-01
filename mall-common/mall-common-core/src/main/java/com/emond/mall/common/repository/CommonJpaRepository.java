@@ -10,15 +10,15 @@ import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 import java.beans.PropertyDescriptor;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @description: 通用JpaRepository的实现类
+ * 通用JpaRepository的实现类
  * @author: Chen Weiming
  */
 
@@ -37,7 +37,7 @@ public class CommonJpaRepository<T,ID> extends SimpleJpaRepository<T,ID> {
      * 通用save方法 ：新增/选择性更新
      */
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public <S extends T> S save(S entity) {
         //获取ID
         ID entityId = (ID) entityInformation.getId(entity);
@@ -58,7 +58,8 @@ public class CommonJpaRepository<T,ID> extends SimpleJpaRepository<T,ID> {
             String[] nullProperties = getNullProperties(entity);
             //将非空属性覆盖到最新对象
             BeanUtils.copyProperties(entity, target, nullProperties);
-            return this.em.merge(entity);
+            this.em.merge(target);
+            return entity;
         }
     }
 

@@ -9,6 +9,7 @@ import com.emond.mall.common.domain.Update;
 import com.emond.mall.provider.goods.dto.BrandDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,16 +19,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Set;
 
+/**
+ * @author Chen Weiming
+ */
 @Api(tags = "品牌REST")
 @RestController
 @RequestMapping("brand")
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class BrandController {
 
-    @Autowired
-    private BrandService brandService;
+    private final BrandService brandService;
 
-    @Autowired
-    private BrandMapper brandMapper;
+    private final BrandMapper brandMapper;
 
     @ApiOperation("分页查询品牌")
     @GetMapping
@@ -52,8 +55,8 @@ public class BrandController {
     @ApiOperation("更新品牌")
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@Validated(Update.class) @RequestBody Brand resource) {
-        brandService.update(resource);
+    public BrandDTO update(@Validated(Update.class) @RequestBody Brand resource) {
+        return brandMapper.toDTO(brandService.update(resource));
     }
 
     @ApiOperation("删除品牌")

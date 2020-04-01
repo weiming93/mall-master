@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
 
 /**
- * @description: 将自定义配置类注册到IOC容器
+ * 将自定义配置类注册到IOC容器
  * @author: Chen Weiming
  */
 public class MallCloudApplicationSelector implements ImportSelector {

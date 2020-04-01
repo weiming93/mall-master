@@ -1,12 +1,11 @@
 package com.emond.mall.business.system.repository;
 
 import com.emond.mall.business.system.domain.User;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
 
 import java.util.Optional;
 
-public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
+public interface UserRepository extends JpaRepositoryImplementation<User,Long> {
 
 
     Optional<User> findByUsernameOrEmail(String username, String email);

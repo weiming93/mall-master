@@ -3,7 +3,6 @@ package com.emond.mall.common.properties;
 import lombok.Data;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
 @Data

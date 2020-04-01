@@ -2,17 +2,14 @@ package com.emond.mall.business.system.service.impl;
 
 import com.emond.mall.business.system.domain.Role;
 import com.emond.mall.business.system.domain.User;
-import com.emond.mall.business.system.domain.query.RoleQueryCriteria;
 import com.emond.mall.business.system.repository.RoleRepository;
 import com.emond.mall.business.system.service.RoleService;
 import com.emond.mall.business.system.service.UserService;
 import com.emond.mall.common.exception.BadRequestException;
 import com.emond.mall.common.exception.EntityExistException;
-import com.emond.mall.common.exception.ResourceNotFoundException;
+import com.emond.mall.common.service.impl.BaseServiceImpl;
 import com.emond.mall.common.utils.OAuth2Utils;
-import com.emond.mall.common.utils.QueryHelp;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -25,9 +22,17 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
-public class RoleServiceImpl implements RoleService {
+public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleService {
+
+    private final static String NAME = "角色";
+
+    private final RoleRepository roleRepository;
     @Autowired
-    private RoleRepository roleRepository;
+    public RoleServiceImpl( RoleRepository roleRepository) {
+        super(roleRepository, NAME);
+        this.roleRepository = roleRepository;
+    }
+
     @Autowired
     private UserService userService;
 
@@ -38,7 +43,7 @@ public class RoleServiceImpl implements RoleService {
         if(roleRepository.existsByName(resources.getName())){
             throw new EntityExistException("角色",resources.getName());
         }
-        return roleRepository.save(resources);
+        return super.create(resources);
     }
 
     @Override
@@ -53,38 +58,19 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void update(Role resources) {
-        this.findById(resources.getId());
-        if(roleRepository.existsByName(resources.getName())){
-            throw new EntityExistException("角色",resources.getName());
-        }
+    public Role update(Role resources) {
         getLevels(resources.getLevel());
-        roleRepository.save(resources);
+        return super.update(resources);
     }
+
 
     @Override
-    public Role findById(Long id) {
-        Role role = roleRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("角色", "ID", id));
-        return role;
+    public List<Role> findByUsersId(Long userId) {
+        return roleRepository.findByUsersId(userId);
     }
 
-    @Override
-    public List<Role> findByUsersId(Long id) {
-        return roleRepository.findByUsersId(id);
-    }
 
-    @Override
-    public Page<Role> getRolePage(RoleQueryCriteria criteria, Pageable pageable) {
-        Page<Role> page = roleRepository.findAll((root, criteriaQuery, criteriaBuilder)
-                -> QueryHelp.getPredicate(root,criteria,criteriaBuilder),pageable);
-        return page;
-    }
 
-    /**
-     * 获取用户的角色级别
-     * @return /
-     */
     @Override
     public Integer getLevels(Integer level){
         User user = userService.findById(OAuth2Utils.getCurrentUserId());
@@ -106,8 +92,7 @@ public class RoleServiceImpl implements RoleService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void updateMenu(Role resources) {
-        Role role = roleRepository.findById(resources.getId())
-                .orElseThrow(() -> new ResourceNotFoundException("角色", "ID", resources.getId()));
+        Role role = super.findById(resources.getId());
         getLevels(role.getLevel());
         role.setMenus(resources.getMenus());
         roleRepository.save(role);

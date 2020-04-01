@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
 @RestControllerAdvice

@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 
 /**
- * @description: Auth相关的配置类
+ * Auth相关的配置类
  * @author: Chen Weiming
  */
 @Data

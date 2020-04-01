@@ -1,7 +1,7 @@
 package com.emond.mall.business.system.controller;
 
 import com.emond.mall.business.system.domain.Dict;
-import com.emond.mall.business.system.domain.query.DictQueryCriteria;
+import com.emond.mall.business.system.query.DictQueryCriteria;
 import com.emond.mall.business.system.mapper.DictMapper;
 import com.emond.mall.business.system.service.DictService;
 import com.emond.mall.common.domain.Create;
@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Set;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
 @Api(tags = "字典管理")
@@ -35,8 +34,8 @@ public class DictController {
 
     @ApiOperation("查询分页字典")
     @GetMapping
-    public Page<DictDTO> getDictPage(DictQueryCriteria resources, Pageable pageable){
-        return dictMapper.toPage(dictService.getDictPage(resources,pageable));
+    public Page<DictDTO> getDictPage(DictQueryCriteria criteria, Pageable pageable){
+        return dictMapper.toPage(dictService.findPage(criteria,pageable));
     }
 
 

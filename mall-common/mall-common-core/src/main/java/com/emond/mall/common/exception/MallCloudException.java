@@ -1,7 +1,7 @@
 package com.emond.mall.common.exception;
 
 /**
- * @description:
+ *
  * @author: Chen Weiming
  */
 public class MallCloudException extends RuntimeException{

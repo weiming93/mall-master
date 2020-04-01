@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @description: 基础转换类
+ * 基础转换类
  * @author: Chen Weiming
  */
 public interface BaseMapper <S, T> {
@@ -22,7 +22,7 @@ public interface BaseMapper <S, T> {
 
     default Page<T> toPage(Page<S> page){
         List<S> content = page.getContent();
-        List<T> targets = this.toDTO(page.getContent());
+        List<T> targets = this.toDTO(content);
         return new PageImpl<T>(targets,page.getPageable(),page.getTotalElements());
     }
 

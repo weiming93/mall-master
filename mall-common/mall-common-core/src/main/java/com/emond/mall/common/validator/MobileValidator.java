@@ -8,7 +8,6 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
 public class MobileValidator implements ConstraintValidator<ValidMobile, String> {

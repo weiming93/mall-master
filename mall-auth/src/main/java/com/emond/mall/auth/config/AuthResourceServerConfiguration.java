@@ -13,7 +13,7 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
 /**
- * @description: WebSecurity资源配置类
+ * Auth本身也是个资源服务器
  * @author: Chen Weiming
  */
 @Configuration

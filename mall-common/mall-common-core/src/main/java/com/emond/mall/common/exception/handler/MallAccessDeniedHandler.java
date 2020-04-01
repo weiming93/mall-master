@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * @description: 用户无权限
+ * 用户无权限
  * @author: Chen Weiming
  */
 @Slf4j

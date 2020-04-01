@@ -11,7 +11,6 @@ import org.springframework.context.annotation.Configuration;
 import java.time.Duration;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
 @Configuration

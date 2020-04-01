@@ -21,7 +21,7 @@ import javax.sql.DataSource;
 import java.util.UUID;
 
 /**
- * @description: 认证配置类
+ * 认证配置类
  * @author: Chen Weiming
  */
 @Configuration

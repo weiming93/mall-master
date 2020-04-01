@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @description:
+ * 网关配置
  * @author: Chen Weiming
  */
 @Configuration
@@ -72,7 +72,7 @@ public class GatewayConfiguration {
         initCustomizedApis();
         initGatewayRules();
     }
-
+    // 添加路由规则
     private void initCustomizedApis() {
         Set<ApiDefinition> definitions = new HashSet<>();
         ApiDefinition api1 = new ApiDefinition("captcha_api")

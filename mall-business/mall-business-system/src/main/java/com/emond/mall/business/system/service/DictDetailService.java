@@ -1,23 +1,16 @@
 package com.emond.mall.business.system.service;
 
 import com.emond.mall.business.system.domain.DictDetail;
-import com.emond.mall.business.system.domain.query.DictDetailQueryCriteria;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.emond.mall.common.service.BaseService;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
-public interface DictDetailService {
-
-    DictDetail findById(Long id);
-
-    DictDetail create(DictDetail resources);
-
-    void update(DictDetail resources);
-
+public interface DictDetailService extends BaseService<DictDetail> {
+    /**
+     * 删除字典详情
+     * @param id
+     */
     void delete(Long id);
 
-    Page<DictDetail> getPage(DictDetailQueryCriteria criteria, Pageable pageable);
 }

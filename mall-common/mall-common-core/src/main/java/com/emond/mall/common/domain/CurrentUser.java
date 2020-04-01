@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * @description: TODO
+ * 登录用户
  * @author: Chen Weiming
  */
 @Data

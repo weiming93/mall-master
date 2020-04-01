@@ -3,7 +3,6 @@ package com.emond.mall.business.system.service.impl;
 import com.emond.mall.business.system.domain.Menu;
 import com.emond.mall.business.system.domain.Role;
 import com.emond.mall.business.system.domain.User;
-import com.emond.mall.business.system.domain.query.MenuQueryCriteria;
 import com.emond.mall.business.system.mapper.MenuMapper;
 import com.emond.mall.business.system.repository.MenuRepository;
 import com.emond.mall.business.system.service.MenuService;
@@ -12,9 +11,8 @@ import com.emond.mall.business.system.service.UserService;
 import com.emond.mall.common.domain.ElTree;
 import com.emond.mall.common.exception.BadRequestException;
 import com.emond.mall.common.exception.EntityExistException;
-import com.emond.mall.common.exception.ResourceNotFoundException;
+import com.emond.mall.common.service.impl.BaseServiceImpl;
 import com.emond.mall.common.utils.OAuth2Utils;
-import com.emond.mall.common.utils.QueryHelp;
 import com.emond.mall.provider.system.dto.MenuDTO;
 import com.emond.mall.provider.system.enums.MenuType;
 import com.emond.mall.provider.system.vo.MenuMetaVo;
@@ -32,14 +30,22 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
-public class MenuServiceImpl implements MenuService {
+public class MenuServiceImpl extends BaseServiceImpl<Menu> implements MenuService {
 
     private static final String NOREDIRECT = "noredirect";
     private static final String INDEX = "index";
     private static final String LAYOUT = "Layout";
 
+    private final static String NAME = "菜单";
+
+    private final MenuRepository menuRepository;
+
     @Autowired
-    private MenuRepository menuRepository;
+    public MenuServiceImpl(MenuRepository menuRepository) {
+        super(menuRepository, NAME);
+        this.menuRepository = menuRepository;
+    }
+
     @Autowired
     private UserService userService;
     @Autowired
@@ -65,7 +71,7 @@ public class MenuServiceImpl implements MenuService {
                 throw new BadRequestException("外链必须以http://或者https://开头");
             }
         }
-        return menuRepository.save(resources);
+        return super.create(resources);
     }
 
     @Override
@@ -97,7 +103,7 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void update(Menu resources) {
+    public Menu update(Menu resources) {
         if (resources.getId().equals(resources.getPid())) {
             throw new BadRequestException("上级不能为自己");
         }
@@ -120,15 +126,9 @@ public class MenuServiceImpl implements MenuService {
             throw new EntityExistException("组件名称", resources.getComponentName());
         }
 
-        menuRepository.save(resources);
+        return super.update(resources);
     }
 
-    @Override
-    public Menu findById(Long id) {
-        Menu menu = menuRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("菜单", "ID", id));
-        return menu;
-    }
 
     @Override
     public List<Menu> findByRolesIdAndTypeInOrderBySortAsc(List<Role> roles) {
@@ -225,11 +225,6 @@ public class MenuServiceImpl implements MenuService {
         return list;
     }
 
-    @Override
-    public List<Menu> queryAll(MenuQueryCriteria criteria) {
-        return menuRepository.findAll((root, criteriaQuery, criteriaBuilder)
-                -> QueryHelp.getPredicate(root, criteria, criteriaBuilder));
-    }
 
     @Override
     public List<ElTree> getMenuTree(List<Menu> resources) {
@@ -237,9 +232,7 @@ public class MenuServiceImpl implements MenuService {
         resources.forEach(menu -> {
             if (ObjectUtils.isNotEmpty(menu)) {
                 List<Menu> menuList = menuRepository.findByPid(menu.getId());
-                ElTree elTree = new ElTree();
-                elTree.setId(menu.getId());
-                elTree.setLabel(menu.getName());
+                ElTree elTree = ElTree.of(menu.getId(),menu.getName());
                 if (ObjectUtils.isNotEmpty(menuList)) {
                     elTree.setChildren(getMenuTree(menuList));
                 }

@@ -18,7 +18,6 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
 @EnableSwagger2

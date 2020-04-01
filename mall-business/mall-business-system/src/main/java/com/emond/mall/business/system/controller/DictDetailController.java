@@ -1,7 +1,7 @@
 package com.emond.mall.business.system.controller;
 
 import com.emond.mall.business.system.domain.DictDetail;
-import com.emond.mall.business.system.domain.query.DictDetailQueryCriteria;
+import com.emond.mall.business.system.query.DictDetailQueryCriteria;
 import com.emond.mall.business.system.mapper.DictDetailMapper;
 import com.emond.mall.business.system.service.DictDetailService;
 import com.emond.mall.common.domain.Create;
@@ -20,7 +20,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
 @Api(tags = "字典详情管理")
@@ -37,7 +36,7 @@ public class DictDetailController {
     @GetMapping
     public Page<DictDetailDTO> getPage(DictDetailQueryCriteria criteria,
                                        @PageableDefault(sort = {"sort"}, direction = Sort.Direction.ASC)Pageable pageable){
-        return dictDetailMapper.toPage(dictDetailService.getPage(criteria,pageable));
+        return dictDetailMapper.toPage(dictDetailService.findPage(criteria,pageable));
     }
 
 

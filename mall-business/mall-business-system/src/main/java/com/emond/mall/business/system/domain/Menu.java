@@ -3,56 +3,68 @@ package com.emond.mall.business.system.domain;
 import com.emond.mall.common.domain.IdentityModel;
 import com.emond.mall.provider.system.enums.MenuType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Setter
 @Getter
 @Entity
+@ApiModel("菜单")
 public class Menu extends IdentityModel {
     @NotBlank
     @Column(unique = true)
+    @ApiModelProperty("菜单名称")
     private String name;
 
-    private Long sort = 999L;
-    //对应路由path
-    @Column(name = "path")
+    @NotNull
+    @ApiModelProperty("排序")
+    private Integer sort;
+
+    @ApiModelProperty("对应路由path")
     private String path;
-    //对应路由组件component
+
+    @ApiModelProperty("对应路由组件component")
     private String component;
 
-    // 类型
+    @ApiModelProperty("菜单类型")
+    @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(name = "type")
     private MenuType type;
 
-    // 权限
-    @Column(name = "permission")
+    @ApiModelProperty("权限")
     private String permission;
 
+    @ApiModelProperty("组件名称")
     @Column(unique = true,name = "component_name")
     private String componentName;
-    //图标
+
+    @ApiModelProperty("图标")
     private String icon;
 
-    // 上级菜单ID
-    @Column(name = "pid",nullable = false)
+    @NotNull
+    @ApiModelProperty("上级菜单ID")
     private Long pid;
 
-    // 是否为外链 true/false
     @Column(name = "i_frame")
+    @ApiModelProperty("外链菜单;是:true,否:false")
     private Boolean iFrame;
 
-    @Column(columnDefinition = "bit(1) default 0")
+    @ApiModelProperty("菜单缓存;是:true,否:false")
+    @NotNull
     private Boolean cache;
 
-    @Column(columnDefinition = "bit(1) default 0")
+    @ApiModelProperty("菜单可见;是:true,否:false")
+    @NotNull
     private Boolean hidden;
 
+    @ApiModelProperty("角色")
     @ManyToMany(mappedBy = "menus")
     @JsonIgnore
     private Set<Role> roles;

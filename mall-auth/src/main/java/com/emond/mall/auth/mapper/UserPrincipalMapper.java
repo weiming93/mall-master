@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
 public class UserPrincipalMapper {
@@ -24,13 +23,12 @@ public class UserPrincipalMapper {
             }
         }
 
-        return new UserPrincipal(
-                user.getId(),
-                user.getUsername(),
-                user.getEmail(),
-                user.getPassword(),
-                user.getEnabled(),
-                authorities
-        );
+        return UserPrincipal.builder()
+                .id(user.getId())
+                .username(user.getUsername())
+                .enabled(user.getEnabled())
+                .password(user.getPassword())
+                .authorities(authorities)
+                .build();
     }
 }

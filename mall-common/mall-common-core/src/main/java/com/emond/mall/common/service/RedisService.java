@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @description:
+ * Redis服务
  * @author: Chen Weiming
  */
 public class RedisService {

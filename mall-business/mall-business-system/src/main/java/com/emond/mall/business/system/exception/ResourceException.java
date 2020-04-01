@@ -1,7 +1,6 @@
 package com.emond.mall.business.system.exception;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
 public class ResourceException extends RuntimeException {

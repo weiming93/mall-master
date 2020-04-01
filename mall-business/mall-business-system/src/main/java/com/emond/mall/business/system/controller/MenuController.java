@@ -2,7 +2,7 @@ package com.emond.mall.business.system.controller;
 
 
 import com.emond.mall.business.system.domain.Menu;
-import com.emond.mall.business.system.domain.query.MenuQueryCriteria;
+import com.emond.mall.business.system.query.MenuQueryCriteria;
 import com.emond.mall.business.system.mapper.MenuMapper;
 import com.emond.mall.business.system.service.MenuService;
 import com.emond.mall.common.domain.Create;
@@ -36,7 +36,7 @@ public class MenuController {
     @ApiOperation("查询菜单")
     @GetMapping
     public List<MenuDTO> getMenus(MenuQueryCriteria criteria){
-        List<Menu> menus = menuService.queryAll(criteria);
+        List<Menu> menus = menuService.findAll(criteria);
         return menuService.buildTree(menus);
     }
 

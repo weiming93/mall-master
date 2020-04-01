@@ -3,7 +3,7 @@ package com.emond.mall.auth.properties;
 import lombok.Data;
 
 /**
- * @description: Client配置类
+ * Client配置类
  * @author: Chen Weiming
  */
 @Data

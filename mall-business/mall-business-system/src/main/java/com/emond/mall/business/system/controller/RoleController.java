@@ -1,7 +1,7 @@
 package com.emond.mall.business.system.controller;
 
 import com.emond.mall.business.system.domain.Role;
-import com.emond.mall.business.system.domain.query.RoleQueryCriteria;
+import com.emond.mall.business.system.query.RoleQueryCriteria;
 import com.emond.mall.business.system.mapper.RoleMapper;
 import com.emond.mall.business.system.service.RoleService;
 import com.emond.mall.common.domain.Create;
@@ -41,7 +41,7 @@ public class RoleController {
     @ApiOperation("分页查询角色")
     @GetMapping
     public Page<RoleDTO> getRolePage(RoleQueryCriteria criteria, Pageable pageable){
-        return roleMapper.toPage(roleService.getRolePage(criteria,pageable));
+        return roleMapper.toPage(roleService.findPage(criteria,pageable));
     }
     @ApiOperation("获取用户级别")
     @GetMapping(value = "/level")

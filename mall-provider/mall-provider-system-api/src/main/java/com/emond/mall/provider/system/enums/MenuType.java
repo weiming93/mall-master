@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * @description: 菜单类型枚举
- * @author: Emond Chan
+ * 菜单类型枚举
+ * @author: Chen Weiming
  */
 @AllArgsConstructor
 @Getter

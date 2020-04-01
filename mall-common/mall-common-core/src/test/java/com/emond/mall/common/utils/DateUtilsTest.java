@@ -8,7 +8,6 @@ import java.time.Instant;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
 public class DateUtilsTest {

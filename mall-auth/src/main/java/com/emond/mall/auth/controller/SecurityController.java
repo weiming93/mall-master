@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.security.Principal;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
 @RestController
@@ -22,11 +21,6 @@ public class SecurityController {
 
     @Autowired
     private ValidateCodeService validateCodeService;
-
-    @GetMapping("test")
-    public String testOauth() {
-        return "oauth";
-    }
 
     @GetMapping("user")
     public Principal currentUser(Principal principal) {

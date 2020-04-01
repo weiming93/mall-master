@@ -2,30 +2,38 @@ package com.emond.mall.business.system.service;
 
 
 import com.emond.mall.business.system.domain.Role;
-import com.emond.mall.business.system.domain.query.RoleQueryCriteria;
-import org.springframework.data.domain.Page;
+import com.emond.mall.common.service.BaseService;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
-import java.util.Set;
 
-public interface RoleService {
-    Role create(Role resources);
+/**
+ * @author Chen Weiming
+ */
+public interface RoleService extends BaseService<Role> {
+    /**
+     * 根据用户ID查询
+     * @param userId
+     * @return
+     */
+    List<Role> findByUsersId(Long userId);
 
-    void delete(Set<Long> ids);
-
-    void update(Role resources);
-
-    Role findById(Long id);
-
-    List<Role> findByUsersId(Long id);
-
-    Page<Role> getRolePage(RoleQueryCriteria criteria, Pageable pageable);
-
+    /**
+     * 获取登录用户的最小级别
+     * @return /
+     */
     Integer getLevels(Integer level);
 
+    /**
+     * 角色绑定菜单
+     * @param resources
+     */
     void updateMenu(Role resources);
 
+    /**
+     * 解绑角色菜单
+     * @param id
+     */
     void untiedMenu(Long id);
 
     List<Role> findAll(Pageable pageable);

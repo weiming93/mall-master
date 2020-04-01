@@ -1,22 +1,21 @@
 package com.emond.mall.business.system.repository;
 
 import com.emond.mall.business.system.domain.Role;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
 
 import java.util.List;
 
-public interface RoleRepository extends JpaRepository<Role,Long>, JpaSpecificationExecutor<Role> {
+public interface RoleRepository extends JpaRepositoryImplementation<Role,Long> {
 
     Boolean existsByName(String roleName);
     /**
      * 根据用户ID查询
-     * @param id 用户ID
+     * @param userId 用户ID
      * @return
      */
-    List<Role> findByUsersId(Long id);
+    List<Role> findByUsersId(Long userId);
 
     /**
      * 解绑角色菜单

@@ -17,7 +17,7 @@ import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 /**
- * @description: WebSecurity配置类
+ * WebSecurity配置类
  * @author: Chen Weiming
  */
 @Order(2)//使优先级高于com.emond.mall.auth.config.ResourceServerConfigure

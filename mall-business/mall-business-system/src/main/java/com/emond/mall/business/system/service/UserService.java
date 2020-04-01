@@ -2,23 +2,22 @@ package com.emond.mall.business.system.service;
 
 
 import com.emond.mall.business.system.domain.User;
-import com.emond.mall.business.system.domain.query.UserQueryCriteria;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.emond.mall.common.service.BaseService;
+import com.emond.mall.provider.system.dto.UserPassDTO;
 
-import java.util.Set;
+/**
+ * @author Chen Weiming
+ */
+public interface UserService extends BaseService<User> {
+    /**
+     * 修改密码
+     * @param userPassDTO
+     */
+    void updatePass(UserPassDTO userPassDTO);
 
-public interface UserService {
-
-
-    User create(User resources);
-
-    void delete(Set<Long> ids);
-
-    User findById(Long currentUserId);
-
-    void update(User resources);
-
-    Page<User> getUserPage(UserQueryCriteria criteria, Pageable pageable);
-
+    /**
+     * 更新用户
+     * @param resources
+     */
+    void updateProfile(User resources);
 }

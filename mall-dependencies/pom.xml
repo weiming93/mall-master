@@ -36,7 +36,11 @@
 
     <dependencyManagement>
         <dependencies>
-
+            <dependency>
+                <groupId>com.emond.mall</groupId>
+                <artifactId>mall-monitor-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.emond.mall</groupId>
                 <artifactId>mall-common-core</artifactId>

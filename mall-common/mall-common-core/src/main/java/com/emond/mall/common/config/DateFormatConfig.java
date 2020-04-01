@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.time.Instant;
 
 /**
- * @description: 全局日期格式化
+ * 全局日期格式化
  * @author: Chen Weiming
  */
 @JsonComponent

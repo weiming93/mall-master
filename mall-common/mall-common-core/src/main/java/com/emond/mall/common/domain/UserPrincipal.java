@@ -1,6 +1,7 @@
 package com.emond.mall.common.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Value;
 import org.springframework.security.core.GrantedAuthority;
@@ -8,8 +9,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
+/**
+ * @author Chen Weiming
+ */
 @EqualsAndHashCode(of = "id")
 @Value
+@Builder
 public class UserPrincipal implements UserDetails {
 
     private static final long serialVersionUID = -7551136369736864900L;
@@ -18,23 +23,12 @@ public class UserPrincipal implements UserDetails {
     private String username;
 
     @JsonIgnore
-    private String email;
-
-    @JsonIgnore
     private String password;
 
     private Boolean enabled;
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public UserPrincipal(Long id,  String username, String email, String password, Boolean enabled, Collection<? extends GrantedAuthority> authorities) {
-        this.id = id;
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.enabled = enabled;
-        this.authorities = authorities;
-    }
 
     @Override
     public String getUsername() {

@@ -7,9 +7,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
-@Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(componentModel = "spring", uses = {DictMapper.class}, unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface DictDetailMapper extends BaseMapper<DictDetail, DictDetailDTO> {
 }

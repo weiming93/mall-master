@@ -9,7 +9,6 @@ import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
 public class AuthExceptionConfiguration {

@@ -7,14 +7,28 @@ spring:
   boot:
     admin:
       ui:
-        title: ${spring.application.name}
+        title: ${spring.application.name} # web页面的标题
   security:
-    user:
+    user: # admin服务端用户
       name: monitor
       password: 123456
   cloud:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
-  main:
-    allow-bean-definition-overriding: true
+
+# spring-boot-admin服务端名称,描述,版本
+info:
+  app:
+    name: ${spring.application.name}
+    description: "@project.description@"
+    version: "@project.version@"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' #暴露所有监控端点
+  endpoint:
+    health:
+      show-details: ALWAYS # 总是展示详细的健康信息

@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @description: 自定义异常处理逻辑
+ * 自定义异常处理逻辑
  * @author: Chen Weiming
  */
 @Slf4j

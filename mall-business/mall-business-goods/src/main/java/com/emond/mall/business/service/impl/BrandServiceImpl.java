@@ -1,51 +1,42 @@
 package com.emond.mall.business.service.impl;
 
 import com.emond.mall.business.domain.Brand;
-import com.emond.mall.business.query.BrandQueryCriteria;
 import com.emond.mall.business.repository.BrandRepository;
 import com.emond.mall.business.service.BrandService;
 import com.emond.mall.common.exception.BadRequestException;
 import com.emond.mall.common.exception.EntityExistException;
-import com.emond.mall.common.exception.ResourceNotFoundException;
-import com.emond.mall.common.utils.QueryHelp;
+import com.emond.mall.common.service.impl.BaseServiceImpl;
 import com.emond.mall.common.utils.RegexpUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Set;
-
+/**
+ * @author Chen Weiming
+ */
 @Service
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true, rollbackFor = Exception.class)
-public class BrandServiceImpl implements BrandService {
+public class BrandServiceImpl extends BaseServiceImpl<Brand> implements BrandService {
 
-    private final static String BRAND = "品牌";
+    private final static String NAME = "品牌";
+
+    private final BrandRepository brandRepository;
+
     @Autowired
-    private BrandRepository brandRepository;
-
-    @Override
-    public Brand findById(Long id) {
-        return brandRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(BRAND, "ID", id));
+    public BrandServiceImpl(BrandRepository brandRepository) {
+        super(brandRepository, NAME);
+        this.brandRepository = brandRepository;
     }
 
-    @Override
-    public Page<Brand> findPage(BrandQueryCriteria criteria, Pageable pageable) {
-        return brandRepository.findAll((root, criteriaQuery, criteriaBuilder)
-                -> QueryHelp.getPredicate(root, criteria, criteriaBuilder),pageable);
-    }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Brand create(Brand resource) {
         validLetter(resource.getLetter());
         if (brandRepository.existsByName(resource.getName())){
-            throw new EntityExistException(BRAND,resource.getName());
+            throw new EntityExistException(NAME,resource.getName());
         }
-        return brandRepository.save(resource);
+        return super.create(resource);
     }
 
     /**
@@ -61,21 +52,12 @@ public class BrandServiceImpl implements BrandService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void update(Brand resource) {
+    public Brand update(Brand resource) {
         validLetter(resource.getLetter());
         if (brandRepository.existsByNameAndIdNot(resource.getName(),resource.getId())){
-            throw new EntityExistException(BRAND,resource.getName());
+            throw new EntityExistException(NAME,resource.getName());
         }
-        brandRepository.save(resource);
+        return super.update(resource);
     }
-
-    @Override
-    @Transactional(rollbackFor = Exception.class)
-    public void delete(Set<Long> ids) {
-        for (Long id : ids) {
-            brandRepository.deleteById(id);
-        }
-    }
-
 
 }

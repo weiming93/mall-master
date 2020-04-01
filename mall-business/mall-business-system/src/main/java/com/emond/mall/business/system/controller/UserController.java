@@ -1,12 +1,13 @@
 package com.emond.mall.business.system.controller;
 
 import com.emond.mall.business.system.domain.User;
-import com.emond.mall.business.system.domain.query.UserQueryCriteria;
 import com.emond.mall.business.system.mapper.UserMapper;
+import com.emond.mall.business.system.query.UserQueryCriteria;
 import com.emond.mall.business.system.service.UserService;
 import com.emond.mall.common.domain.Create;
 import com.emond.mall.common.domain.Update;
 import com.emond.mall.provider.system.dto.UserDTO;
+import com.emond.mall.provider.system.dto.UserPassDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
@@ -33,7 +34,7 @@ public class UserController {
     @ApiOperation("查询用户")
     @GetMapping
     public Page<UserDTO> getUserPage(UserQueryCriteria criteria, Pageable pageable) {
-        return userMapper.toPage(userService.getUserPage(criteria, pageable));
+        return userMapper.toPage(userService.findPage(criteria, pageable));
     }
 
     @ApiOperation("创建用户")
@@ -57,4 +58,23 @@ public class UserController {
         userService.update(resources);
     }
 
+    @ApiOperation("修改密码")
+    @PatchMapping("pass")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updatePass(@RequestBody UserPassDTO userPassDTO){
+        userService.updatePass(userPassDTO);
+    }
+
+    @ApiOperation("修改个人中心头像,资料")
+    @PatchMapping("profile")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateProfile(@Validated(Update.class) @RequestBody User resources){
+        userService.updateProfile(resources);
+    }
+
+    @ApiOperation("通过ID查询用户")
+    @GetMapping("{id}")
+    public UserDTO findById(@PathVariable Long id){
+        return userMapper.toDTO(userService.findById(id));
+    }
 }

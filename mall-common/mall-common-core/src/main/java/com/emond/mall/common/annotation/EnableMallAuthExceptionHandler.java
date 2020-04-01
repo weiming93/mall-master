@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Import;
 import java.lang.annotation.*;
 
 /**
- * @description: 认证类型异常翻译
+ * 认证类型异常翻译
  * @author: Chen Weiming
  */
 @Target({ElementType.TYPE})

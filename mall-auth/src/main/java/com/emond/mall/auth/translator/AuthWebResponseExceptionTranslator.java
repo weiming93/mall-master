@@ -9,7 +9,7 @@ import org.springframework.security.oauth2.provider.error.WebResponseExceptionTr
 import org.springframework.stereotype.Component;
 
 /**
- * @description: 异常翻译器
+ * 异常翻译器
  * @author: Chen Weiming
  */
 @Component

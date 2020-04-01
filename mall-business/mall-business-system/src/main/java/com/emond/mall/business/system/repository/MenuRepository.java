@@ -3,12 +3,11 @@ package com.emond.mall.business.system.repository;
 
 import com.emond.mall.business.system.domain.Menu;
 import com.emond.mall.provider.system.enums.MenuType;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
 
 import java.util.List;
 
-public interface MenuRepository extends JpaRepository<Menu,Long>, JpaSpecificationExecutor<Menu> {
+public interface MenuRepository extends JpaRepositoryImplementation<Menu,Long> {
 
     boolean existsByName(String name);
 

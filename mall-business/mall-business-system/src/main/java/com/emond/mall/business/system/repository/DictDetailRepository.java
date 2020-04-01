@@ -1,9 +1,8 @@
 package com.emond.mall.business.system.repository;
 
 import com.emond.mall.business.system.domain.DictDetail;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.jpa.repository.support.JpaRepositoryImplementation;
 
 
-public interface DictDetailRepository extends JpaRepository<DictDetail, Long>, JpaSpecificationExecutor<DictDetail> {
+public interface DictDetailRepository extends JpaRepositoryImplementation<DictDetail,Long> {
 }

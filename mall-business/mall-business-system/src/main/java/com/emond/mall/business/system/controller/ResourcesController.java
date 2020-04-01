@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
 @Api(tags = "资源管理")

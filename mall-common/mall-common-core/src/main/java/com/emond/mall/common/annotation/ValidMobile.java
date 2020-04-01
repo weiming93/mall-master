@@ -10,7 +10,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @description:
  * @author: Chen Weiming
  */
 @Target({ElementType.FIELD})

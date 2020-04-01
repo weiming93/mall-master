@@ -6,7 +6,7 @@ import com.emond.mall.provider.system.dto.UserDTO;
 import org.mapstruct.Mapper;
 
 /**
- * @description: 用户映射类
+ * 用户映射类
  * @author: Chen Weiming
  */
 @Mapper(componentModel = "spring", uses = RoleMapper.class)

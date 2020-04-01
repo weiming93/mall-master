@@ -1,6 +1,6 @@
 spring:
   profiles:
-    include: base
+    include: base,monitor
   application:
     name: mall-business-system
   cloud:

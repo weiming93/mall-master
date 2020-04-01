@@ -3,7 +3,7 @@ package com.emond.mall.auth.properties;
 import lombok.Data;
 
 /**
- * @description: 验证码配置类
+ * 验证码配置类
  * @author: Chen Weiming
  */
 @Data
