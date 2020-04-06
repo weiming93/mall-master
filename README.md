@@ -8,4 +8,4 @@
 演示账号: test 123456
 
 #### 系统架构
-
+![Image text](https://raw.githubusercontent.com/weiming93/mall-master/master/resources/Mall%E6%9E%B6%E6%9E%84%E5%9B%BE.png)
