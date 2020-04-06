@@ -12,7 +12,7 @@ import java.io.PrintStream;
  */
 @UtilityClass
 public class ThrowableUtils {
-    public String stackTraceToString(Throwable cause) {
+    public static String stackTraceToString(Throwable cause) {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         PrintStream pout = new PrintStream(out);
         cause.printStackTrace(pout);

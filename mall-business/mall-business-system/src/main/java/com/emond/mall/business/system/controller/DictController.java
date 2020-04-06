@@ -42,14 +42,14 @@ public class DictController {
     @ApiOperation("新增字典")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public DictDTO create(@Validated(Create.class) @RequestBody Dict resources){
+    public DictDTO create(@Validated @RequestBody Dict resources){
       return dictMapper.toDTO(dictService.create(resources));
     }
 
     @ApiOperation("修改字典")
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@Validated(Update.class) @RequestBody Dict resources){
+    public void update(@Validated @RequestBody Dict resources){
         dictService.update(resources);
     }
 

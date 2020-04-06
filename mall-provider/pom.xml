@@ -13,8 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>mall-provider-system-api</module>
-        <module>mall-provider-generator</module>
         <module>mall-provider-goods-api</module>
+        <module>mall-provider-setting-api</module>
     </modules>
 
 

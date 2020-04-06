@@ -2,6 +2,7 @@ package com.emond.mall.common.utils;
 
 
 import com.emond.mall.common.annotation.Query;
+import lombok.experimental.UtilityClass;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 
@@ -17,7 +18,7 @@ import java.util.List;
  * @date 2019-6-4 14:59:48
  */
 @Slf4j
-@SuppressWarnings({"unchecked","all"})
+@UtilityClass
 public class QueryHelp {
 
     public static <R, Q> Predicate getPredicate(Root<R> root, Q query, CriteriaBuilder cb) {

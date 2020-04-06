@@ -3,10 +3,6 @@ spring:
     include: base,monitor
   application:
     name: mall-business-system
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
   main:
     allow-bean-definition-overriding: true
 
@@ -16,18 +12,18 @@ spring:
       max-file-size: 1MB #限制文件上传大小为10MB
 
 server:
-  port: 9600
+  port: 20380
 
 security:
   oauth2:
     resource:
       id: ${spring.application.name}
       # http请求
-      user-info-uri: http://127.0.0.1:9500/auth/user
+      user-info-uri: http://127.0.0.1:20080/auth/user
 
 # MinIO对象存储相关配置
 minio:
-  endpoint: http://localhost:9000 #MinIO服务所在地址
+  endpoint: http://192.168.0.100:9000 #MinIO服务所在地址
   bucketName: mall-cloud #存储桶名称
   accessKey: minioadmin #访问的key
   secretKey: minioadmin #访问的秘钥

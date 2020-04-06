@@ -4,8 +4,6 @@ import com.emond.mall.business.domain.Attribute;
 import com.emond.mall.business.mapper.AttributeMapper;
 import com.emond.mall.business.query.AttributeQueryCriteria;
 import com.emond.mall.business.service.AttributeService;
-import com.emond.mall.common.domain.Create;
-import com.emond.mall.common.domain.Update;
 import com.emond.mall.provider.goods.dto.AttributeDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -48,14 +46,14 @@ public class AttributeController {
     @ApiOperation("新增商品属性")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public AttributeDTO create( @RequestBody @Validated(Create.class) Attribute resource) {
+    public AttributeDTO create( @RequestBody @Validated Attribute resource) {
         return attributeMapper.toDTO(attributeService.create(resource));
     }
 
     @ApiOperation("更新商品属性")
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public AttributeDTO update(@Validated(Update.class) @RequestBody Attribute resource) {
+    public AttributeDTO update(@Validated @RequestBody Attribute resource) {
         return attributeMapper.toDTO(attributeService.update(resource));
     }
 

@@ -1,6 +1,6 @@
 package com.emond.mall.business.domain;
 
-import com.emond.mall.common.converter.SetConverter;
+import com.emond.mall.common.converter.SetStringConverter;
 import com.emond.mall.common.domain.IdentityModel;
 import com.emond.mall.provider.goods.enums.Searching;
 import com.emond.mall.provider.goods.enums.Selected;
@@ -47,7 +47,7 @@ public abstract class AttributeParameterCommunity extends IdentityModel {
     private Selected selected;
 
     @NotNull
-    @Convert(converter = SetConverter.class)
+    @Convert(converter = SetStringConverter.class)
     @ApiModelProperty("可选值列表")
     private Set<String> optionals;
 

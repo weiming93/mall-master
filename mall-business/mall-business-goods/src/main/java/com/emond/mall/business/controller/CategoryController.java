@@ -4,8 +4,6 @@ import com.emond.mall.business.domain.Category;
 import com.emond.mall.business.mapper.CategoryMapper;
 import com.emond.mall.business.query.CategoryQueryCriteria;
 import com.emond.mall.business.service.CategoryService;
-import com.emond.mall.common.domain.Create;
-import com.emond.mall.common.domain.Update;
 import com.emond.mall.provider.goods.dto.CategoryDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -46,14 +44,14 @@ public class CategoryController {
     @ApiOperation("新增商品分类")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CategoryDTO create(@Validated(Create.class) @RequestBody Category resource) {
+    public CategoryDTO create(@Validated @RequestBody Category resource) {
         return categoryMapper.toDTO(categoryService.create(resource));
     }
 
     @ApiOperation("更新商品分类")
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public CategoryDTO update(@Validated(Update.class) @RequestBody Category resource) {
+    public CategoryDTO update(@Validated @RequestBody Category resource) {
         return categoryMapper.toDTO(categoryService.update(resource));
     }
 

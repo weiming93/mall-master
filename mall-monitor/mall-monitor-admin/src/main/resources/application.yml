@@ -1,7 +1,9 @@
 server:
-  port: 9510
+  port: 20180
 
 spring:
+  profiles:
+    include: monitor
   application:
     name: mall-monitor-admin
   boot:
@@ -12,10 +14,6 @@ spring:
     user: # admin服务端用户
       name: monitor
       password: 123456
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
 
 # spring-boot-admin服务端名称,描述,版本
 info:

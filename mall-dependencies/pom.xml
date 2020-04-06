@@ -32,13 +32,15 @@
         <jackson.version>2.10.3</jackson.version>
         <hutool.version>5.2.3</hutool.version>
         <minio.version>6.0.13</minio.version>
+        <logback-encoder.version>6.3</logback-encoder.version>
+
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>com.emond.mall</groupId>
-                <artifactId>mall-monitor-client</artifactId>
+                <artifactId>mall-common-monitor</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
@@ -55,7 +57,7 @@
 
             <dependency>
                 <groupId>com.emond.mall</groupId>
-                <artifactId>mall-provider-generator</artifactId>
+                <artifactId>mall-provider-setting-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -173,6 +175,12 @@
                 <groupId>io.minio</groupId>
                 <artifactId>minio</artifactId>
                 <version>${minio.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logback-encoder.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

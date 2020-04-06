@@ -15,6 +15,7 @@
         <module>mall-common-base</module>
         <module>mall-common-core</module>
         <module>mall-common-api</module>
+        <module>mall-common-monitor</module>
     </modules>
 
 

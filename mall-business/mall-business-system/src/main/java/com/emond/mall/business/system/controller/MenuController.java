@@ -55,7 +55,7 @@ public class MenuController {
     @ApiOperation("新增菜单")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MenuDTO create(@Validated(Create.class) @RequestBody Menu resources){
+    public MenuDTO create(@Validated @RequestBody Menu resources){
         return menuMapper.toDTO(menuService.create(resources));
     }
 
@@ -69,7 +69,7 @@ public class MenuController {
     @ApiOperation("修改菜单")
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@Validated(Update.class) @RequestBody Menu resources){
+    public void update(@Validated @RequestBody Menu resources){
         menuService.update(resources);
     }
 

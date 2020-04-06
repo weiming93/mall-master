@@ -1,7 +1,0 @@
-spring:
-  boot:
-    admin:
-      client:
-        url: http://127.0.0.1:9510 #指定spring-boot-admin服务端地址
-        username: monitor #spring-boot-admin服务端用户
-        password: 123456 #spring-boot-admin服务端密码

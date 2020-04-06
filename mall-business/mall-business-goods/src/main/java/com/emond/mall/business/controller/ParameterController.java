@@ -48,14 +48,14 @@ public class ParameterController {
     @ApiOperation("新增商品属性")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ParameterDTO create(@Validated(Create.class) @RequestBody Parameter resource) {
+    public ParameterDTO create(@Validated @RequestBody Parameter resource) {
         return parameterMapper.toDTO(parameterService.create(resource));
     }
 
     @ApiOperation("更新商品属性")
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public ParameterDTO update(@Validated(Update.class) @RequestBody Parameter resource) {
+    public ParameterDTO update(@Validated @RequestBody Parameter resource) {
         return parameterMapper.toDTO(parameterService.update(resource));
     }
 

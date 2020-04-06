@@ -10,7 +10,9 @@ import java.time.temporal.TemporalAccessor;
 
 @UtilityClass
 public class DateUtils {
-    //时区
+    /**
+     * 时区
+     */
     private final String TIMEZONE = "Asia/Shanghai";
     /**
      * yyyy-MM-dd
@@ -30,7 +32,7 @@ public class DateUtils {
      * @param instant
      * @return yyyy-MM-dd
      */
-    public String getDateByInstant(Instant instant) {
+    public static String getDateByInstant(Instant instant) {
         return yyyyMMdd.format(instant);
     }
 
@@ -40,7 +42,7 @@ public class DateUtils {
      * @param instant
      * @return yyyy-MM-dd HH:mm:ss
      */
-    public String getDateTimeByInstant(Instant instant) {
+    public static String getDateTimeByInstant(Instant instant) {
         return yyyyMMddHHmmss.format(instant);
     }
 
@@ -49,7 +51,7 @@ public class DateUtils {
      * @param dateTime
      * @return
      */
-    public Instant parseDateTime(String dateTime){
+    public static Instant parseDateTime(String dateTime){
         TemporalAccessor accessor = yyyyMMddHHmmss.parse(dateTime);
         return Instant.from(accessor);
     }

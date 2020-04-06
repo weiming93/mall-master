@@ -52,7 +52,7 @@ public class RoleController {
     @ApiOperation("新增角色")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public RoleDTO create(@Validated(Create.class) @RequestBody Role resources){
+    public RoleDTO create(@Validated @RequestBody Role resources){
         return roleMapper.toDTO(roleService.create(resources));
     }
 
@@ -66,7 +66,7 @@ public class RoleController {
     @ApiOperation("修改角色")
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@Validated(Update.class) @RequestBody Role resources){
+    public void update(@Validated @RequestBody Role resources){
         roleService.update(resources);
     }
 

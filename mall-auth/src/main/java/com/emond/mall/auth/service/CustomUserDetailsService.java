@@ -4,7 +4,6 @@ package com.emond.mall.auth.service;
 import com.emond.mall.auth.domain.User;
 import com.emond.mall.auth.mapper.UserPrincipalMapper;
 import com.emond.mall.auth.repository.UserRepository;
-import com.emond.mall.common.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -25,8 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String usernameOrEmailOrPhone) throws UsernameNotFoundException {
-        User user = userRepository.findByUsernameOrEmailOrPhone(usernameOrEmailOrPhone, usernameOrEmailOrPhone, usernameOrEmailOrPhone)
-                .orElseThrow(() -> new ResourceNotFoundException("账号", usernameOrEmailOrPhone));
+        User user = userRepository.findByUsernameOrEmailOrPhone(usernameOrEmailOrPhone, usernameOrEmailOrPhone, usernameOrEmailOrPhone).get();
         return UserPrincipalMapper.create(user);
     }
 }

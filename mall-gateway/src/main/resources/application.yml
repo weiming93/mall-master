@@ -1,19 +1,11 @@
 server:
-  port: 9500
+  port: 20080
 spring:
   profiles:
     include: monitor
   application:
     name: mall-gateway
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 127.0.0.1:8848
-#    sentinel:
-#      filter:
-#        enabled: false
-#      transport:
-#        dashboard: localhost:8080
+
     gateway:
       enabled: true #Gateway开启服务注册和发现的功能
       discovery:
@@ -26,10 +18,7 @@ spring:
           predicates:
             - Path=/auth/**
           filters:
-        #            - name: CircuitBreaker
-        #              args:
-        #                name: authCircuitBreaker
-        #                fallbackUri: forward:/fallback/mall-auth
+
         # 用户服务
         - id: mall-business-system
           uri: lb://mall-business-system
@@ -37,10 +26,6 @@ spring:
             - Path=/system/**
           filters:
 
-        #            - name: CircuitBreaker
-        #              args:
-        #                name: authCircuitBreaker
-        #                fallbackUri: forward:/fallback/mall-business-user
         # 商品服务
         - id: mall-business-goods
           uri: lb://mall-business-goods
@@ -51,12 +36,6 @@ spring:
         - StripPrefix=1
   main:
     allow-bean-definition-overriding: true
-  boot:
-    admin:
-      client:
-        url: 127.0.0.1:9510
-        username: monitor
-        password: 123456
 
 
 

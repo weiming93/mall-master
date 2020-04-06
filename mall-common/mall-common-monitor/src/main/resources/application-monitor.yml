@@ -1,0 +1,19 @@
+spring:
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:20180 #指定spring-boot-admin服务端地址
+        username: monitor #spring-boot-admin服务端用户
+        password: 123456 #spring-boot-admin服务端密码
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.0.100:8848
+  sleuth:
+    sampler:
+      probability: 0.1 #抽样率0.1
+  zipkin:
+    base-url: http://192.168.0.110:9411 # zipkin url地址
+    sender:
+      type: web # 发送类型还有 rabbit 和 kafka
+

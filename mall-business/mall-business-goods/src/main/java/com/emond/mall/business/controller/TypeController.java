@@ -4,9 +4,7 @@ import com.emond.mall.business.domain.Type;
 import com.emond.mall.business.mapper.TypeMapper;
 import com.emond.mall.business.query.TypeQueryCriteria;
 import com.emond.mall.business.service.TypeService;
-import com.emond.mall.common.domain.Create;
 import com.emond.mall.common.domain.ElTree;
-import com.emond.mall.common.domain.Update;
 import com.emond.mall.provider.goods.dto.TypeDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -54,14 +52,14 @@ public class TypeController {
     @ApiOperation("新增商品类型")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public TypeDTO create(@Validated(Create.class) @RequestBody Type resource) {
+    public TypeDTO create(@Validated @RequestBody Type resource) {
         return typeMapper.toDTO(typeService.create(resource));
     }
 
     @ApiOperation("更新商品类型")
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public TypeDTO update(@Validated(Update.class) @RequestBody Type resource) {
+    public TypeDTO update(@Validated @RequestBody Type resource) {
         return typeMapper.toDTO(typeService.update(resource));
     }
 

@@ -14,12 +14,13 @@
     <modules>
         <module>mall-business-goods</module>
         <module>mall-business-system</module>
+        <module>mall-business-setting</module>
     </modules>
 
     <dependencies>
         <dependency>
             <groupId>com.emond.mall</groupId>
-            <artifactId>mall-monitor-client</artifactId>
+            <artifactId>mall-common-monitor</artifactId>
         </dependency>
 
         <dependency>
@@ -121,7 +122,14 @@
         </dependency>
 
 
-
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

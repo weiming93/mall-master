@@ -1,11 +1,11 @@
 package com.emond.mall.business.system.controller;
 
 import com.emond.mall.business.system.domain.User;
+import com.emond.mall.business.system.domain.UserAvatar;
+import com.emond.mall.business.system.domain.UserProfile;
 import com.emond.mall.business.system.mapper.UserMapper;
 import com.emond.mall.business.system.query.UserQueryCriteria;
 import com.emond.mall.business.system.service.UserService;
-import com.emond.mall.common.domain.Create;
-import com.emond.mall.common.domain.Update;
 import com.emond.mall.provider.system.dto.UserDTO;
 import com.emond.mall.provider.system.dto.UserPassDTO;
 import io.swagger.annotations.Api;
@@ -40,8 +40,8 @@ public class UserController {
     @ApiOperation("创建用户")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public UserDTO create(@Validated(Create.class) @RequestBody User resources) {
-        return userMapper.toDTO(userService.create(resources));
+    public UserDTO create(@Validated @RequestBody User resource) {
+        return userMapper.toDTO(userService.create(resource));
     }
 
     @ApiOperation("删除用户")
@@ -54,8 +54,8 @@ public class UserController {
     @ApiOperation("修改用户")
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@Validated(Update.class) @RequestBody User resources) {
-        userService.update(resources);
+    public void update(@Validated @RequestBody User resource) {
+        userService.update(resource);
     }
 
     @ApiOperation("修改密码")
@@ -65,13 +65,20 @@ public class UserController {
         userService.updatePass(userPassDTO);
     }
 
-    @ApiOperation("修改个人中心头像,资料")
+    @ApiOperation("修改个人中心资料")
     @PatchMapping("profile")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void updateProfile(@Validated(Update.class) @RequestBody User resources){
-        userService.updateProfile(resources);
+    public void updateProfile(@Validated @RequestBody UserProfile resource){
+        userService.updateProfile(resource);
     }
 
+    @ApiOperation("修改头像")
+    @PatchMapping("avatar")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void updateAvatar(@Validated @RequestBody UserAvatar resource){
+        userService.updateAvatar(resource);
+    }
+    
     @ApiOperation("通过ID查询用户")
     @GetMapping("{id}")
     public UserDTO findById(@PathVariable Long id){

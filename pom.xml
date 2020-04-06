@@ -11,6 +11,8 @@
         <module>mall-gateway</module>
         <module>mall-auth</module>
         <module>mall-monitor</module>
+        <module>mall-business/mall-business-setting</module>
+        <module>mall-provider/mall-provider-setting-api</module>
     </modules>
 
     <parent>
@@ -87,15 +89,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
     <repositories>
         <repository>

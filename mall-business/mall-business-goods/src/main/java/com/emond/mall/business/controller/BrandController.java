@@ -48,14 +48,14 @@ public class BrandController {
     @ApiOperation("新增品牌")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public BrandDTO create(@Validated(Create.class) @RequestBody Brand resource) {
+    public BrandDTO create(@Validated @RequestBody Brand resource) {
         return brandMapper.toDTO(brandService.create(resource));
     }
 
     @ApiOperation("更新品牌")
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public BrandDTO update(@Validated(Update.class) @RequestBody Brand resource) {
+    public BrandDTO update(@Validated @RequestBody Brand resource) {
         return brandMapper.toDTO(brandService.update(resource));
     }
 

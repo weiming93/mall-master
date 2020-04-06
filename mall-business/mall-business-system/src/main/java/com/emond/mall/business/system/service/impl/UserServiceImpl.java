@@ -3,6 +3,8 @@ package com.emond.mall.business.system.service.impl;
 
 import com.emond.mall.business.system.domain.Role;
 import com.emond.mall.business.system.domain.User;
+import com.emond.mall.business.system.domain.UserAvatar;
+import com.emond.mall.business.system.domain.UserProfile;
 import com.emond.mall.business.system.repository.UserRepository;
 import com.emond.mall.business.system.service.RoleService;
 import com.emond.mall.business.system.service.UserService;
@@ -11,6 +13,7 @@ import com.emond.mall.common.exception.EntityExistException;
 import com.emond.mall.common.service.impl.BaseServiceImpl;
 import com.emond.mall.common.utils.OAuth2Utils;
 import com.emond.mall.provider.system.dto.UserPassDTO;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -106,6 +109,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void updatePass(UserPassDTO userPassDTO) {
         User currentUser = this.findById(OAuth2Utils.getCurrentUserId());
         if(!passwordEncoder.matches(userPassDTO.getOldPass(), currentUser.getPassword())){
@@ -121,7 +125,18 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
 
 
     @Override
-    public void updateProfile(User resources) {
-        super.update(resources);
+    @Transactional(rollbackFor = Exception.class)
+    public void updateProfile(UserProfile resource) {
+        User user = new User();
+        BeanUtils.copyProperties(resource,user);
+        super.update(user);
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void updateAvatar(UserAvatar resource) {
+        User user = new User();
+        BeanUtils.copyProperties(resource,user);
+        super.update(user);
     }
 }

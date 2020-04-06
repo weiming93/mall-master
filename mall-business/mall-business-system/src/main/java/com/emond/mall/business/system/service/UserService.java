@@ -2,6 +2,8 @@ package com.emond.mall.business.system.service;
 
 
 import com.emond.mall.business.system.domain.User;
+import com.emond.mall.business.system.domain.UserAvatar;
+import com.emond.mall.business.system.domain.UserProfile;
 import com.emond.mall.common.service.BaseService;
 import com.emond.mall.provider.system.dto.UserPassDTO;
 
@@ -16,8 +18,14 @@ public interface UserService extends BaseService<User> {
     void updatePass(UserPassDTO userPassDTO);
 
     /**
-     * 更新用户
+     * 个人中心更新
      * @param resources
      */
-    void updateProfile(User resources);
+    void updateProfile(UserProfile resources);
+
+    /**
+     * 更新头像
+     * @param resource
+     */
+    void updateAvatar(UserAvatar resource);
 }

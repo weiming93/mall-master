@@ -1,11 +1,9 @@
 package com.emond.mall.business.system.controller;
 
 import com.emond.mall.business.system.domain.DictDetail;
-import com.emond.mall.business.system.query.DictDetailQueryCriteria;
 import com.emond.mall.business.system.mapper.DictDetailMapper;
+import com.emond.mall.business.system.query.DictDetailQueryCriteria;
 import com.emond.mall.business.system.service.DictDetailService;
-import com.emond.mall.common.domain.Create;
-import com.emond.mall.common.domain.Update;
 import com.emond.mall.provider.system.dto.DictDetailDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -45,14 +43,14 @@ public class DictDetailController {
     @ApiOperation("新增字典详情")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public DictDetailDTO create(@Validated(Create.class) @RequestBody DictDetail resources){
+    public DictDetailDTO create(@Validated @RequestBody DictDetail resources){
       return dictDetailMapper.toDTO(dictDetailService.create(resources));
     }
 
     @ApiOperation("修改字典详情")
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@Validated(Update.class) @RequestBody DictDetail resources){
+    public void update(@Validated @RequestBody DictDetail resources){
         dictDetailService.update(resources);
     }
 

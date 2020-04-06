@@ -15,7 +15,6 @@
     <description>Mall-Monitor监控模块</description>
     <modules>
         <module>mall-monitor-admin</module>
-        <module>mall-monitor-client</module>
     </modules>
 
 </project>

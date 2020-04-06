@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.oauth2.common.exceptions.*;
 import org.springframework.security.oauth2.provider.error.WebResponseExceptionTranslator;
 import org.springframework.stereotype.Component;
@@ -47,6 +48,11 @@ public class AuthWebResponseExceptionTranslator implements WebResponseExceptionT
                 message = "用户已被锁定，请联系管理员";
                 return status.body(message);
             }
+            message = "用户名或密码错误";
+            return status.body(message);
+        }
+        if (e instanceof InternalAuthenticationServiceException
+                && StringUtils.containsIgnoreCase(e.getMessage(),"No value present")){
             message = "用户名或密码错误";
             return status.body(message);
         }
