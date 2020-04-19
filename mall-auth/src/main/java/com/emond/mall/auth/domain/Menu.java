@@ -13,9 +13,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
+@Entity
 @Setter
 @Getter
-@Entity
+@Table
 @ApiModel("菜单")
 public class Menu extends IdentityModel {
     @NotBlank
@@ -69,3 +70,4 @@ public class Menu extends IdentityModel {
     @JsonIgnore
     private Set<Role> roles;
 }
+

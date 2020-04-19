@@ -59,8 +59,8 @@ public class TypeController {
     @ApiOperation("更新商品类型")
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public TypeDTO update(@Validated @RequestBody Type resource) {
-        return typeMapper.toDTO(typeService.update(resource));
+    public void update(@Validated @RequestBody Type resource) {
+        typeService.update(resource);
     }
 
     @ApiOperation("删除商品类型")

@@ -8,12 +8,12 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.0.100:8848
+        server-addr: 127.0.0.1:8848
   sleuth:
     sampler:
       probability: 0.1 #抽样率0.1
   zipkin:
     base-url: http://192.168.0.110:9411 # zipkin url地址
     sender:
-      type: web # 发送类型还有 rabbit 和 kafka
+      type: web # 发送方式还有 rabbit 和 kafka
 

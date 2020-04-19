@@ -4,8 +4,6 @@ import com.emond.mall.business.domain.Parameter;
 import com.emond.mall.business.mapper.ParameterMapper;
 import com.emond.mall.business.query.ParameterQueryCriteria;
 import com.emond.mall.business.service.ParameterService;
-import com.emond.mall.common.domain.Create;
-import com.emond.mall.common.domain.Update;
 import com.emond.mall.provider.goods.dto.ParameterDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -55,8 +53,8 @@ public class ParameterController {
     @ApiOperation("更新商品属性")
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public ParameterDTO update(@Validated @RequestBody Parameter resource) {
-        return parameterMapper.toDTO(parameterService.update(resource));
+    public void update(@Validated @RequestBody Parameter resource) {
+        parameterService.update(resource);
     }
 
     @ApiOperation("删除商品属性")

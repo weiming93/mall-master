@@ -18,6 +18,7 @@ import java.util.Set;
 /**
  * @author Chen Weiming
  */
+@Entity
 @Setter
 @Getter
 @Table( uniqueConstraints = {
@@ -33,7 +34,6 @@ import java.util.Set;
 })
 @ApiModel("用户")
 public class User extends IdentityModel {
-
     @ApiModelProperty("昵称")
     @NotBlank
     @Size(min = 2, max = 20, message = "{range}")
@@ -44,13 +44,13 @@ public class User extends IdentityModel {
     @Size(min = 2, max = 20, message = "{range}")
     private String username;
 
-    @ApiModelProperty("性别")
-    private String sex;
-
     @ApiModelProperty("邮箱")
     @NotBlank
     @ValidEmail
     private String email;
+
+    @ApiModelProperty("性别")
+    private String sex;
 
     @ApiModelProperty("电话")
     @NotBlank
@@ -67,6 +67,7 @@ public class User extends IdentityModel {
     @ApiModelProperty("头像")
     private String avatar;
 
+    @NotNull
     @ApiModelProperty("角色")
     @ManyToMany
     @JoinTable(name = "users_roles",

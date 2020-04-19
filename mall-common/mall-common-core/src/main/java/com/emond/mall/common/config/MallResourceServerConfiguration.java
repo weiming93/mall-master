@@ -2,7 +2,6 @@ package com.emond.mall.common.config;
 
 import com.emond.mall.common.constant.EndpointConstant;
 import com.emond.mall.common.properties.MallCommonProperties;
-import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -19,12 +18,12 @@ import org.springframework.security.web.access.AccessDeniedHandler;
  */
 @Configuration
 @EnableResourceServer
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class MallResourceServerConfiguration extends ResourceServerConfigurerAdapter {
+    @Autowired
     private AccessDeniedHandler accessDeniedHandler;
-
+    @Autowired
     private AuthenticationEntryPoint authenticationEntryPoint;
-
+    @Autowired
     private MallCommonProperties properties;
     @Override
     public void configure(HttpSecurity http) throws Exception {

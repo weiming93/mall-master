@@ -18,9 +18,10 @@ import java.util.Set;
 /**
  * @author Chen Weiming
  */
+
+@Entity
 @Setter
 @Getter
-@Entity
 @Table( uniqueConstraints = {
         @UniqueConstraint(columnNames = {
                 "username"
@@ -62,7 +63,6 @@ public class User extends IdentityModel {
     private Boolean enabled;
 
     @ApiModelProperty("密码")
-    @NotBlank
     private String password;
 
     @ApiModelProperty("头像")

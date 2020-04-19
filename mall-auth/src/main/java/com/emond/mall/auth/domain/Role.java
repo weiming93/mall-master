@@ -10,10 +10,10 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Set;
-
+@Entity
 @Setter
 @Getter
-@Entity
+@Table
 @ApiModel("角色")
 public class Role extends IdentityModel {
 
@@ -22,11 +22,9 @@ public class Role extends IdentityModel {
     @ApiModelProperty("角色名称")
     private String name;
 
-    @Column
     @ApiModelProperty("备注")
     private String remark;
 
-    @Column
     @ApiModelProperty("权限")
     private String permission;
 

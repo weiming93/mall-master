@@ -11,9 +11,10 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Set;
 
+@Entity
 @Setter
 @Getter
-@Entity
+@Table
 @ApiModel("角色")
 public class Role extends IdentityModel {
 

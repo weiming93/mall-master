@@ -53,8 +53,8 @@ public class AttributeController {
     @ApiOperation("更新商品属性")
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public AttributeDTO update(@Validated @RequestBody Attribute resource) {
-        return attributeMapper.toDTO(attributeService.update(resource));
+    public void update(@Validated @RequestBody Attribute resource) {
+        attributeService.update(resource);
     }
 
     @ApiOperation("删除商品属性")

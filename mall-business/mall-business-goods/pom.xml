@@ -16,5 +16,6 @@
             <groupId>com.emond.mall</groupId>
             <artifactId>mall-provider-goods-api</artifactId>
         </dependency>
+
     </dependencies>
 </project>

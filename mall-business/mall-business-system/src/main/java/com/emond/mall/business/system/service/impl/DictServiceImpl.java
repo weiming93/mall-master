@@ -5,6 +5,7 @@ import com.emond.mall.business.system.repository.DictRepository;
 import com.emond.mall.business.system.service.DictService;
 import com.emond.mall.common.exception.EntityExistException;
 import com.emond.mall.common.service.impl.BaseServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,6 +21,7 @@ public class DictServiceImpl extends BaseServiceImpl<Dict> implements DictServic
 
     private final DictRepository dictRepository;
 
+    @Autowired
     public DictServiceImpl(DictRepository dictRepository) {
         super(dictRepository, NAME);
         this.dictRepository = dictRepository;

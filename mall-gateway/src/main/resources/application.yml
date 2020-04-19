@@ -5,7 +5,7 @@ spring:
     include: monitor
   application:
     name: mall-gateway
-
+  cloud:
     gateway:
       enabled: true #Gateway开启服务注册和发现的功能
       discovery:
@@ -32,6 +32,12 @@ spring:
           predicates:
             - Path=/goods/**
           filters:
+
+        # 设置服务
+        - id: mall-business-setting
+          uri: lb://mall-business-setting
+          predicates:
+            - Path=/setting/**
       default-filters:
         - StripPrefix=1
   main:

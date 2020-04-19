@@ -33,7 +33,7 @@
         <hutool.version>5.2.3</hutool.version>
         <minio.version>6.0.13</minio.version>
         <logback-encoder.version>6.3</logback-encoder.version>
-
+        <guava.version>28.2-jre</guava.version>
     </properties>
 
     <dependencyManagement>
@@ -181,6 +181,12 @@
                 <groupId>net.logstash.logback</groupId>
                 <artifactId>logstash-logback-encoder</artifactId>
                 <version>${logback-encoder.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

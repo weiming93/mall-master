@@ -10,7 +10,6 @@ import java.util.List;
  */
 @Data
 @RequiredArgsConstructor(staticName = "of")
-@AllArgsConstructor(access = AccessLevel.PROTECTED)
 public class ElTree {
     @NonNull
     private Long id;

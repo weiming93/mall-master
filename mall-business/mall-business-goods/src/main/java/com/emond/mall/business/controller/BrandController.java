@@ -4,8 +4,6 @@ import com.emond.mall.business.domain.Brand;
 import com.emond.mall.business.mapper.BrandMapper;
 import com.emond.mall.business.query.BrandQueryCriteria;
 import com.emond.mall.business.service.BrandService;
-import com.emond.mall.common.domain.Create;
-import com.emond.mall.common.domain.Update;
 import com.emond.mall.provider.goods.dto.BrandDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -55,8 +53,8 @@ public class BrandController {
     @ApiOperation("更新品牌")
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public BrandDTO update(@Validated @RequestBody Brand resource) {
-        return brandMapper.toDTO(brandService.update(resource));
+    public void update(@Validated @RequestBody Brand resource) {
+        brandService.update(resource);
     }
 
     @ApiOperation("删除品牌")

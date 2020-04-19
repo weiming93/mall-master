@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    include: base,monitor
+  application:
+    name: mall-business-setting
+
+server:
+  port: 20580
+
+
+security:
+  oauth2:
+    resource:
+      id: ${spring.application.name}
+      user-info-uri: http://127.0.0.1:20080/auth/user

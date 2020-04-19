@@ -20,10 +20,6 @@ public class AuthProperties {
     private int refreshTokenValiditySeconds = 60 * 60 * 24 * 7;
 
     /**
-     * 免认证访问路径
-     */
-    private String anonUrl;
-    /**
      * 验证码配置
      */
     private ValidateCodeProperties code = new ValidateCodeProperties();

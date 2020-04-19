@@ -51,8 +51,8 @@ public class CategoryController {
     @ApiOperation("更新商品分类")
     @PutMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public CategoryDTO update(@Validated @RequestBody Category resource) {
-        return categoryMapper.toDTO(categoryService.update(resource));
+    public void update(@Validated @RequestBody Category resource) {
+        categoryService.update(resource);
     }
 
     @ApiOperation("删除商品分类")

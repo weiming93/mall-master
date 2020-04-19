@@ -11,8 +11,6 @@
         <module>mall-gateway</module>
         <module>mall-auth</module>
         <module>mall-monitor</module>
-        <module>mall-business/mall-business-setting</module>
-        <module>mall-provider/mall-provider-setting-api</module>
     </modules>
 
     <parent>

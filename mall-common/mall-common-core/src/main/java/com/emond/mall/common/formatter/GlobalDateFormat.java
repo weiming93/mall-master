@@ -1,4 +1,4 @@
-package com.emond.mall.common.config;
+package com.emond.mall.common.formatter;
 
 import com.emond.mall.common.utils.DateUtils;
 import com.fasterxml.jackson.core.JsonGenerator;
@@ -18,7 +18,7 @@ import java.time.Instant;
  * @author: Chen Weiming
  */
 @JsonComponent
-public class DateFormatConfig {
+public class GlobalDateFormat {
 
     /**
      * 日期格式化
